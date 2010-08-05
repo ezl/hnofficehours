@@ -7,7 +7,7 @@ from django.conf.urls.defaults import *
 urlpatterns = patterns('',
     # Example:
     # (r'^hnofficehours/', include('hnofficehours.foo.urls')),
-
+    (r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'homepage.html'}),
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
