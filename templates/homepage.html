@@ -1,106 +1,176 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="hnstyle.css">
   <title>HN Office Hours</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css">
+  <style>
+    article, aside, figure, footer, header, hgroup,
+  menu, nav, section { display: block; }
+  section, footer { margin: 0; padding: 0; }
+body  { font-family:Verdana; font-size:10pt; color:black; }
+
+
+input    { font-family:Courier; font-size:10pt; color:#000000; }
+input[type="submit"] { font-family:Verdana; }
+textarea { font-family:Courier; font-size:10pt; color:#000000; }
+
+a:link    { color:#F60; text-decoration:none; }
+a:visited { color:#F60; text-decoration:none; }
+
+.default { font-family:Verdana; font-size: 10pt; color:#828282; }
+.admin   { font-family:Verdana; font-size:8.5pt; color:#000000; }
+.title   { font-family:Verdana; font-size: 10pt; color:#828282; }
+.adtitle { font-family:Verdana; font-size:  9pt; color:#828282; }
+.subtext { font-family:Verdana; font-size:  7pt; color:#828282; }
+.yclinks { font-family:Verdana; font-size:  8pt; color:#828282; }
+.pagetop { font-family:Verdana; font-size: 10pt; color:#222222; }
+.comhead { font-family:Verdana; font-size:  8pt; color:#828282; }
+.comment { font-family:Verdana; font-size:  9pt; }
+.dead    { font-family:Verdana; font-size:  9pt; color:#dddddd; }
+
+.comment a:link, .comment a:visited { text-decoration:underline;}
+.dead a:link, .dead a:visited { color:#dddddd; }
+.pagetop a:visited { color:#000000;}
+.topsel a:link, .topsel a:visited { color:#ffffff; }
+
+.subtext a:link, .subtext a:visited { color:#828282; }
+.subtext a:hover { text-decoration:underline; }
+
+.comhead a:link, .subtext a:visited { color:#828282; }
+.comhead a:hover { text-decoration:underline; }
+
+.default p { margin-top: 8px; margin-bottom: 0px; }
+
+.pagebreak {page-break-before:always}
+
+pre { overflow: auto; padding: 2px; max-width:600px; }
+pre:hover {overflow:auto}
+
+.content { background:#f6f6ef; margin:0 auto; width:85%; }
+h1,h2,h3 { padding: 0 4px 10px; margin:0; font-weight:bold; }
+h1 { background:#ff6600; color:#222; font-size:1.4em; margin:0; padding: 0 4px; }
+h2 { font-size:1.2em; }
+p { margin:1em 1em; }
+label { color:#828282; float:left; width:6em; }
+code { border:1px dashed red; color:#828282; padding:0 2px; white-space:nowrap; }
+.break { border-top:4px solid #ff6600; padding-top:1em; }
+.half {
+width: 50%;
+float: left;
+ }
+ ul { padding-left: 2em; }
+ ul > li { list-style: disc outside; }
+ td { vertical-align: top; }
+ #main { margin: 1em 0; }
+  </style>
 </head>
 <body>
+<section id="main">
+<div class="content">
   <h1>HN Office Hours</h1>
 
-  <h2>Summary for lazy bastards</h2>
-    What: Build a site to connect HNers in need with HNers with expertise
-    When: This weekend, Sat Aug 7 and Sun Aug 8 (And maybe Friday)
-    Who: Anyone who wants to help and anyone we can find.
-    Why: HN people are smart and helpful. Making new contacts is good.
-    Where: <a href="http://github.com/ezl/hnofficehours">Github</a>
+<div>
+  <h2>Summary</h2>
+  <p><label>What:</label> Build a site to connect HNers in need with HNers with expertise by facilitating office hours logistics, who will be available when</p>
+  <p><label>When:</label> This weekend, Friday Aug 6 PM to Sun Aug 8 </p>
+  <p><label>Who:</label> Anyone who wants to help and anyone we can find.</p>
+  <p><label>Why:</label> HN people are smart and helpful. Making new contacts is good.</p>
+  <p><label>Where:</label> <a href="http://github.com/ezl/hnofficehours">Github</a></p>
+</div>
 
+<div style="width:50%; float:left;">
   <h2>Background</h2>
 
-    A few weeks ago, <a href="http://news.ycombinator.com/user?id=kentf">kentf</a>
+    <p>A few weeks ago, <a href="http://news.ycombinator.com/user?id=kentf">kentf</a>
     posted on Hacker News and offered to act as a sounding board for any problem
     fellow HNers might have. We think that's awesome and want to build a site to
-    facilitate interactions like that.
+    those facilitate interactions.</p>
 
-    The basic idea is to create a site where users can post times that they will
-    be available to answer questions or act as a sounding board to other members.
-
-    The details of the execution are very much up in the air and we'd like to
-    ask for suggestions/recommendations/help on the project.
-
-  <h2>HN hackathon</h2>
-    We're <a href="http://pybrew.com">Pybrew</a> and we work on Django web apps.
-    The Minimum Viable Product for <a href="http://hnoficehours.com">HN Office Hours</a>
-    is slated to get built this weekend, Aug 7 & 8.  We intend to work on it but
-    we think we'll get a lot further and build something a lot better as a collaborative
-    effort with other hackers.
-
-    We'd like to invite anyone who is interested in contributing to this effort in
-    any capacity to hop on board.  Ideally we can keep this project as open as
-    possible and allow anyone to contribute.
-
-    We're interested in approaching the project this way because it'll be more fun,
-    we want to meet other hackers, and we think all parties involved will be able
-    to learn from it.  Any potential users of such a site are especially encouraged
-    to contribute -- help mold this project in a way that you would enjoy using it.
-
-    Anyone who wants to contribute can.
-
-    The project will be hosted on github at <a href="http://github.com/ezl/hnofficehours">http://github.com/ezl/hnofficehours</a>,
-    where we just started posting notes in the <a href="http://wiki.github.com/ezl/hnofficehours/">Wiki</a>.
-    For now that seems like a good place to store comments and notes. Additionally,
-    we'll start creating <a href="http://github.com/ezl/hnofficehours/issues">Issues (Tickets)</a>
-    based on any feedback we get from potential users and collaborators.
-
-    The intent is to very rapidly and undiscriminatingly open it up to anyone
-    to commit to and only scale back if "too many cooks" becomes a code management
-    problem.
-
-
-  <h2>What we need help on</h2>
-    Everything and anything.
-
-    We're not very good at UI design and graphic design. The
-    more backend coders the more features we can build out in one weekend.
-    If you just want to hang out and chat with us and make recommendations,
-    we'll probably open up our campfire room or get an IRC chat and we'll
-    welcome you to help us find bugs, make suggestions, or tell jokes.
-
-    Basically, we'll take any help we can get, and we hope everyone who joins
-    feels the same way.
+    <p>The details of the execution are very much up in the air and we'd like to
+    ask for suggestions/recommendations/help on the project.</p>
 
   <h2>Proposal</h2>
-    Everything is up for negotiation, but to get this started, we've described
-    what we think is the MVP:
+    <p>Everything is up for discussion, but to get this started, we've described
+    what we think is the Min Viable Product:</p>
 
     <ul>
-      <li>Display available office hours as a list of people. Click on a
-    person --> see available times / profile</li>
-      <li>Display available office hours as a list of datetimes. Click on a
-    time --> see who is available with links to the view from 1.</li>
+      <li>Display list of people. Clicking a person shows profile and availability.</li>
+      <li>Display available office hours as a list of datetimes. Clicking a
+    time shows who is available at that time.</li>
       <li>Vanilla django auth + hn profile validation *</li>
       <li>“Easy” to create office hours. i should be able to say “every
     wednesday for the following 4 weeks” and similar. As limited by
     django-calendar.</li>
-      <li>One-click to skype</li>
+      <li>Link your office hours to a google calendar rss feed</li>
+      <li>One-click to Skype</li>
     </ul>
-
-    Additional thoughts:
+    <p>Additional thoughts:</p>
     <ul>
-      <li>should non HN users be allowed to create accounts? we can restrict this by keeping django account is_active = False until hn profile validation occurs. can non-hn users (non authenticated users) use the site? can they view office hours? my vote is yes. would some office hours holders like to restrict their office hours to be only open for fellow authenticated HNers?</li>
+      <li>should non HN users be allowed to create accounts? we can restrict this
+      by keeping django <code>account is_active = False</code> until hn profile validation
+      occurs. can non-hn users (non authenticated users) use the site? can they 
+      view office hours? my vote is yes. would some office hours holders like to 
+      restrict their office hours to be only open for fellow authenticated HNers?</li>
       <li>could we do one-click to gchat, too?</li>
-      <li>twilio integration. "I want to be available for phone calls, but don't want to publicly list my phone number. can we obscure a number with twilio and have it just forward to the correct number?</li>
-      <li>support office hours requests? "I'm having problems with X. contact me: null@example.com"</li>
-      <li>search by area of expertise.  "I want to find people who are holding office hours that know about SEO"</li>
+      <li>twilio integration. "I want to be available for phone calls, but don't 
+      want to publicly list my phone number. can we obscure a number with twilio 
+      and have it just forward to the correct number?</li>
+      <li>support office hours requests? "I'm having problems with X. contact me:
+      null@example.com"</li>
+      <li>search by area of expertise.  "I want to find people who are holding 
+      office hours that know about SEO"</li>
     </ul>
+</div>
+<div style="width:50%; float:left;">
 
+  <h2>HN hackathon</h2>
+    <p>We're <a href="http://pybrew.com">Pybrew</a> and we work on Django web apps.
+    This weekend we want to build a Minimum Viable Product for <a href="http://hnofficehours.com">HN Office Hours</a>
+    with a group of people from Hacker News. We'll get a lot further and build something better as a collaborative
+    effort.</p>
 
-  <h2>Get in touch</h2>
-    You can get in touch with us directly at founders@pybrew.com.
-    On HN we are
-<a href="http://news.ycombinator.com/user?id=arthurdent">arthurdent</a>
-<a href="http://news.ycombinator.com/user?id=rguzman">rguzman</a>
-<a href="http://news.ycombinator.com/user?id=ccg">ccg</a>
+    <p>We're inviting anyone who is interested in contributing to this effort in
+    any capacity to reach out to us.</p>
+
+    <p>We're interested in approaching the project this way because it'll be more fun,
+    we want to meet other hackers, and we think all parties involved will be able
+    to learn from it.  Any potential users of such a site are especially encouraged
+    to contribute &mdash; help mold this project in a way that you would enjoy using it.</p>
+
+    <p>Anyone who wants to contribute can. There is no contribution too small.</p>
+
+    <p>The project will be hosted on <a href="http://github.com/ezl/hnofficehours">Github</a>. 
+    We just started posting notes in the <a href="http://wiki.github.com/ezl/hnofficehours/">Wiki</a>.
+    For now that seems like a good place to store comments and notes. Additionally,
+    we'll start creating <a href="http://github.com/ezl/hnofficehours/issues">Issues (Tickets)</a>
+    based on any feedback we get from potential users and collaborators.</p>
+
+  <h2>What we need help on</h2>
+    <p>Everything and anything.  We're not very good at UI design and graphic design. The
+    more backend coders the more features we can build out in one weekend.
+    If you just want to hang out and chat with us and make recommendations,
+    we'll probably open up our campfire room or get an IRC chat and we'll
+    welcome you to help us find bugs, make suggestions, or tell jokes.</p>
+
+    <p>We'll take any help we can get. Every little bit helps.  If you can't code,
+    just click around the site and find bugs.</p>
+</div>
+
+<div style="clear: both;"><br /></div>
+
+<div>
+  <h2 class="break">Get in touch</h2>
+    <p>You can get in touch with us directly at founders@pybrew.com.</p>
+    <p>On HN we are
+<a href="http://news.ycombinator.com/user?id=arthurdent">arthurdent</a>, 
+<a href="http://news.ycombinator.com/user?id=rguzman">rguzman</a>, 
+<a href="http://news.ycombinator.com/user?id=ccg">ccg</a>, 
 <a href="http://news.ycombinator.com/user?id=ezl">ezl</a>
+</p>
+</div>
+</section>
 </body>
 </html>
