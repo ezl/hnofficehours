@@ -2,8 +2,100 @@
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="hnstyle.css">
+  <title>HN Office Hours</title>
 </head>
 <body>
   <h1>HN Office Hours</h1>
+
+  <h2>Summary for lazy bastards</h2>
+    What: Build a site to connect HNers in need with HNers with expertise
+    When: This weekend, Sat Aug 7 and Sun Aug 8 (And maybe Friday)
+    Who: Anyone who wants to help and anyone we can find.
+    Why: HN people are smart and helpful. Making new contacts is good.
+    Where: <a href="http://github.com/ezl/hnofficehours">Github</a>
+
+  <h2>Background</h2>
+
+    A few weeks ago, <a href="http://news.ycombinator.com/user?id=kentf">kentf</a>
+    posted on Hacker News and offered to act as a sounding board for any problem
+    fellow HNers might have. We think that's awesome and want to build a site to
+    facilitate interactions like that.
+
+    The basic idea is to create a site where users can post times that they will
+    be available to answer questions or act as a sounding board to other members.
+
+    The details of the execution are very much up in the air and we'd like to
+    ask for suggestions/recommendations/help on the project.
+
+  <h2>HN hackathon</h2>
+    We're a <a href="http://pybrew.com">Pybrew</a> and we work on Django web apps.
+    The Minimum Viable Product for <a href="http://hnoficehours.com">HN Office Hours</a>
+    is slated to get built this weekend, Aug 7 & 8.  We intend to work on it but
+    we think we'll get a lot further and build something a lot better as a collaborative
+    effort with other hackers.
+
+    We'd like to invite anyone who is interested in contributing to this effort in
+    any capacity to hop on board.  Ideally we can keep this project as open as
+    possible and allow anyone to contribute.
+
+    We're interested in approaching the project this way because it'll be more fun,
+    we want to meet other hackers, and we think all parties involved will be able
+    to learn from it.  Any potential users of such a site are especially encouraged
+    to contribute -- help mold this project in a way that you would enjoy using it.
+
+    Anyone who wants to contribute can.
+
+    The project will be hosted on github at <a href="http://github.com/ezl/hnofficehours">http://github.com/ezl/hnofficehours</a>,
+    where we just started posting notes in the <a href="http://wiki.github.com/ezl/hnofficehours/">Wiki</a>.
+    For now that seems like a good place to store comments and notes. Additionally,
+    we'll start creating <a href="http://github.com/ezl/hnofficehours/issues">Issues (Tickets)</a>
+    based on any feedback we get from potential users and collaborators.
+
+    The intent is to very rapidly and undiscriminatingly open it up to anyone
+    to commit to and only scale back if "too many cooks" becomes a code management
+    problem.
+
+
+  <h2>What we need help on</h2>
+    Everything and anything.
+
+    We're not very good at UI design and graphic design. The
+    more backend coders the more features we can build out in one weekend.
+    If you just want to hang out and chat with us and make recommendations,
+    we'll probably open up our campfire room or get an IRC chat and we'll
+    welcome you to help us find bugs, make suggestions, or tell jokes.
+
+    Basically, we'll take any help we can get, and we hope everyone who joins
+    feels the same way.
+
+  <h2>Proposal</h2>
+    Everything is up for negotiation, but to get this started, we've described
+    what we think is the MVP:
+
+    <ul>
+      <li>Display available office hours as a list of people. Click on a
+    person --> see available times / profile</li>
+      <li>Display available office hours as a list of datetimes. Click on a
+    time --> see who is available with links to the view from 1.</li>
+      <li>Vanilla django auth + hn profile validation *</li>
+      <li>“Easy” to create office hours. i should be able to say “every
+    wednesday for the following 4 weeks” and similar. As limited by
+    django-calendar.</li>
+      <li>One-click to skype</li>
+    </ul>
+
+    Additional thoughts:
+    <ul>
+      <li>should non HN users be allowed to create accounts? we can restrict this by keeping django account is_active = False until hn profile validation occurs. can non-hn users (non authenticated users) use the site? can they view office hours? my vote is yes. would some office hours holders like to restrict their office hours to be only open for fellow authenticated HNers?</li>
+      <li>could we do one-click to gchat, too?</li>
+      <li>twilio integration. "I want to be available for phone calls, but don't want to publicly list my phone number. can we obscure a number with twilio and have it just forward to the correct number?</li>
+      <li>support office hours requests? "I'm having problems with X. contact me: null@example.com"</li>
+      <li>search by area of expertise.  "I want to find people who are holding office hours that know about SEO"</li>
+    </ul>
+
+
+  <h2>Get in touch</h2>
+    You can get in touch with us directly at founders@pybrew.com.
 </body>
 </html>
