@@ -1,0 +1,38 @@
+# vim: set ft=apache :
+<VirtualHost *:80>
+    ServerAdmin hnofficehours-sysadmin@pybrew.com
+
+    ServerName www.hnofficehours.com
+    ServerAlias hnofficehours.com
+
+    LogLevel warn
+    ErrorLog /home/hnofficehours/log/apache.error.log
+    CustomLog /home/hnofficehours/log/apache.custom.log combined
+
+    #### STATIC MEDIA ####
+    Alias /favicon.ico /home/hnofficehours/hnofficehours/media/images/favicon.ico
+
+    # <LocationMatch "\.(jpg|css|gif|pdf|ico)$">
+    #     SetHandler None
+    # </LocationMatch>
+
+    Alias /site_media /home/hnofficehours/hnofficehours/media/
+    <Location "/site_media">
+        SetHandler None
+        Order allow,deny
+        Allow from all
+    </Location>
+
+    Alias /media /home/hnofficehours/env/lib/python2.6/site-packages/django/contrib/admin/media
+    <Location "/media">
+        SetHandler None
+        Order allow,deny
+        Allow from all
+    </Location>
+
+    #### WSGI ####
+    WSGIDaemonProcess hnofficehours user=www-data group=www-data threads=2
+    WSGIProcessGroup hnofficehours
+
+    WSGIScriptAlias / /home/hnofficehours/hnofficehours/deploy/hnofficehours.wsgi
+</VirtualHost>
