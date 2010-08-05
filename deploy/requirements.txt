@@ -1,0 +1,10 @@
+Django==1.2
+ipython
+werkzeug
+psycopg2
+django-extensions
+django-debug-toolbar
+PyYAML
+fabric==0.9.0
+-e hg+http://sorl-thumbnail.googlecode.com/hg/#egg=sorl-thumbnail
+pil
