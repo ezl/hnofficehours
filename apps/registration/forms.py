@@ -1,7 +1,6 @@
 import urllib2
 from django import forms
 from django.conf import settings
-from BeautifulSoup import BeautifulSoup
 
 
 class RegistrationForm(forms.Form):
