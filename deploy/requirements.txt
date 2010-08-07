@@ -12,4 +12,6 @@ pil
 vobject             # django-schedule dependency
 python-dateutil     # django-schedule dependency
 django-tagging
+django-tagging-ext
+django-tagging-autocomplete
 BeautifulSoup
