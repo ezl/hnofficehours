@@ -116,10 +116,14 @@ INSTALLED_APPS = (
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 AJAX_LOOKUP_CHANNELS = {
     'profile_skills' : dict(model='profiles.Profile',search_field='skills'),
     # specifying the model Profile in the profiles app, and searching against the 'skills' field
 }
+
 
 # ------------------------
 # Deal with settings_local

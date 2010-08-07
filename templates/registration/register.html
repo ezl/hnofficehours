@@ -1,9 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Paste {{ profile_url }} into your hacker news profile, replacing username with your hacker news username.</p>
   <form action="" method="post">{% csrf_token %}
     {{ form.as_p }}
+    <p>Paste <span id="profileURL">{{ profile_url }}</span> into your hacker news profile, replacing username with your hacker news username.</p>
     <p><input type="submit" value="register" /></p>
   </form>
+{% endblock %}
+
+{% block extra_head %}
+<script>
+$(function(){
+  var el = $('#profileURL');
+  var url = el.text();
+  var baseUrl = url.substr(0,url.lastIndexOf('/',url.length-2) + 1);
+
+  $('#id_hn_username').keyup(function(){
+    el.text(baseUrl + this.value + '/');
+  });
+});
+
+</script>
 {% endblock %}
