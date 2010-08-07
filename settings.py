@@ -105,13 +105,15 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
 
+    # third-party apps:
+    'ajax_select',
     'django_extensions',
     'schedule',
 
+    # local apps:
     'officehours',
     'registration',
     'profiles',
-	'ajax_select',
 )
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
