@@ -4,6 +4,11 @@ from datetime import date, timedelta
 import re
 
 def retrieve_hn_user_data(hn_username):
+    """Retrieve information contained on HN user's HN profile.
+
+       Takes a username.
+       Returns dict with keys: ["user", "created", "karma", "about"]
+    """
     hn_profile_url = "http://news.ycombinator.com/user?id=%s" % hn_username
     page = urllib2.urlopen(hn_profile_url).read()
     soup = BeautifulSoup(page)
