@@ -111,10 +111,12 @@ INSTALLED_APPS = (
     'officehours',
     'registration',
     'profiles',
+	'ajax_select',
 )
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
 
+TAGGING_AUTOCOMPLETE_JS_BASE_URL = '/site_media/jqac/'
 
 # ------------------------
 # Deal with settings_local
