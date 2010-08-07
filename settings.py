@@ -110,6 +110,7 @@ INSTALLED_APPS = (
 
     'officehours',
     'registration',
+    'profile',
 )
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username

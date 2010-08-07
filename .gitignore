@@ -1,1 +1,4 @@
 settings_local.py
+*.sqlite3
+pip-log.txt
+*.pyc
