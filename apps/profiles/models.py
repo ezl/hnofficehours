@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 from tagging.fields import TagField
 from tagging.models import Tag
+from tagging_autocomplete.models import TagAutocompleteField
 from timezones.fields import TimeZoneField
 
 
@@ -13,9 +15,11 @@ class Profile(models.Model):
     phone = models.CharField("Phone number", max_length=20, null=True, blank=True)
     timezone = TimeZoneField()
 
-    skills = TagField()
-    def set_tags(self, tags):
-        Tag.objects.update_tags(self, tags)
+    skills = models.ManyToManyField('Skill', blank=True)
+    def __unicode__(self):
+        return unicode(self.user)
 
-    def get_tags(self, tags):
-        return Tags.objects.get_for_object(self)
+class Skill(models.Model):
+    name = models.CharField(max_length=50)
+    def __unicode__(self):
+        return self.name
