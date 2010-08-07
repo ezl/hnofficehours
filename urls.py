@@ -22,7 +22,7 @@ urlpatterns = patterns('',
     url(r'logout/$', 'django.contrib.auth.views.logout', kwargs={'next_page': '/'}, name='logout'),
     url(r'^register/$', 'registration.views.register', name='register'),
     url(r'^register/finish/$', 'registration.views.set_password', name='set_password'),	
-    # url(r'^profile/$', include('profiles.urls')),
+    url(r'^profile/$', include('profiles.urls')),
 )
 
 if settings.DEBUG:
