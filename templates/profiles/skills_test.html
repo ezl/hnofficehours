@@ -3,9 +3,9 @@
 {% block content %}
 
 <form method="POST" action="">{% csrf_token %}
-    profile_form Test
+    Your Profile
     {{profile_form.as_p}}
-    <input type="submit"
+    <input type="submit" value="Save" />
 </form>
 
 {% endblock content %}
