@@ -9,7 +9,8 @@ class RegistrationForm(forms.Form):
     hn_username = forms.CharField()
 
     def clean(self):
-        hn_username = self.cleaned_data['hn_username']
+      if self.is_valid():
+	hn_username = self.cleaned_data['hn_username']
         hnoh_profile =  settings.USER_PROFILE_URL % hn_username
         try:
             user_data = retrieve_hn_user_data(hn_username)
