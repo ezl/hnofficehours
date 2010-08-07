@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block extra_head %}
+{{ block.super }}
+<link rel="stylesheet" href="{{ MEDIA_URL }}schedule/css/schedule.css" type="text/css" media="screen" />
+{% endblock %}
+
 {% block content %}
 {% block body %}{% endblock %}
 {% endblock %}
