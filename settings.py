@@ -118,6 +118,9 @@ INSTALLED_APPS = (
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 TAGGING_AUTOCOMPLETE_JS_BASE_URL = '/site_media/jqac/'
 
 # ------------------------
