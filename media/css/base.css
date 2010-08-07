@@ -1,3 +1,9 @@
+/*
+  orange: #FF6600
+  text: #828282
+  lt gray : #f6f6ef
+*/
+/* start stolen block of CSS from HN */
 body  { font-family:Verdana; font-size:10pt; color:#828282; }
 td    { font-family:Verdana; font-size:10pt; color:#828282; }
 
@@ -39,3 +45,14 @@ a:visited { color:#828282; text-decoration:none; }
 
 pre { overflow: auto; padding: 2px; max-width:600px; }
 pre:hover {overflow:auto}
+/*  end stolen block */
+
+/* begin our stuff */
+header,#header { background:#FF6600; color:black; text-align:right; }
+.container { background:#f6f6ef; margin:1em auto; width:960px; }
+
+.container > p { margin:0 1em; }
+
+/* forms */
+form > p { margin:0 1em; }
+form label { color:black; }

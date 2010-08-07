@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<form method="POST" action="">
-    Skills Form Test
-    {{skills_form.as_p}}
+<form method="POST" action="">{% csrf_token %}
+    profile_form Test
+    {{profile_form.as_p}}
     <input type="submit"
 </form>
 
