@@ -107,6 +107,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'schedule',
 
+    'officehours',
     'registration',
 )
 
