@@ -1,7 +1,7 @@
 Django>=1.2
 ipython
 werkzeug
-psycopg2
+# psycopg2
 django-extensions
 django-debug-toolbar
 PyYAML
