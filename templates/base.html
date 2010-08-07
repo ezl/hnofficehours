@@ -2,6 +2,7 @@
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<<<<<<< HEAD
   <title>
 	{% block title %}
 		HN Office Hours
@@ -9,14 +10,15 @@
 		{% endblock extra_title %}
 	{% endblock title %}
   </title>
+  <title>HN Office Hours{% block extra_title %}{% endblock %}</title>
   {% block javascript %}
-	<script type="text/javascript" 
-			src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
-	</script>
-	<script type="text/javascript" 
-			src="/site_media/jqac/jquery.autocomplete.min.js">
-	</script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   {% endblock javascript %}
+  {% block css %}
+    <link rel="shortcut icon" href="{{ MEDIA_URL}}favicon.ico">
+    <link href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css" type="text/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/base.css">
+  {% endblock css %}
   {% block extra_head %}{% endblock %}
 </head>
 <body>

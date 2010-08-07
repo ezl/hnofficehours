@@ -6,9 +6,11 @@ from tagging_autocomplete.models import TagAutocompleteField
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    skills = TagAutocompleteField()
-    def set_tags(self, tags):
-        Tag.objects.update_tags(self, tags)
+    def __unicode__(self):
+        return unicode(self.user)
 
-    def get_tags(self, tags):
-        return Tags.objects.get_for_object(self)
+class Skill(models.Model):
+    name = models.CharField(max_length=50)
+    profiles = models.ManyToManyField(Profile)
+    def __unicode__(self):
+        return self.name

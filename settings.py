@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'officehours',
     'registration',
     'profiles',
+	'ajax_select',
 )
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
