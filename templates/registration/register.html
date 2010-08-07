@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Paste {{ profile_url }} into your hacker news profile, replacing username with your hacker news username.</p>
+  <form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" value="register" /></p>
+  </form>
+{% endblock %}
