@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^officehours/', include('officehours.urls')),
     url(r'^register/$', 'registration.views.register', name='register'),
     url(r'^register/finish/$', 'registration.views.set_password', name='set_password'),	
-    url(r'^profile/$', include('profile.urls')),
+    url(r'^profile/$', include('profiles.urls')),
 )
 
 if settings.DEBUG:
