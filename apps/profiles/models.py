@@ -2,10 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagging.fields import TagField
 from tagging.models import Tag
+from tagging_autocomplete.models import TagAutocompleteField
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    skills = TagField()
+    skills = TagAutocompleteField()
     def set_tags(self, tags):
         Tag.objects.update_tags(self, tags)
 
