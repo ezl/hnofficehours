@@ -16,7 +16,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
     url(r'^register/$', 'registration.views.register', name='register'),
-    url(r'^register/finish/$', 'registration.views.set_password', name='set_password'),
+    url(r'^register/finish/$', 'registration.views.set_password', name='set_password'),	
+    (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
 )
 
 if settings.DEBUG:
