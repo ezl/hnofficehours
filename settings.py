@@ -115,6 +115,9 @@ INSTALLED_APPS = (
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 
 # ------------------------
 # Deal with settings_local
