@@ -20,8 +20,9 @@ def retrieve_hn_user_data(hn_username):
         user_data[field_key] = " ".join(str(c) for c in contents)
 
     expected_keys = ["user", "created", "karma", "about"]
-    e = "Expected fields not in HN profile. Probably not valid username."
-    assert all(map(lambda x: x in user_data.keys(), expected_keys)), e
+    e = "Expected fields not in HN profile. Probably invalid username."
+    if not all(map(lambda x: x in user_data.keys(), expected_keys)):
+        raise Exception, e
 
     # convert the "created X days ago" to a python datetime
     if not "day" in user_data["created"]:
