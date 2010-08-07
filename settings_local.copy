@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'schedule',
 
     'officehours',
+    'profile',
     'registration',
 
     'debug_toolbar',
