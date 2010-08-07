@@ -8,3 +8,5 @@ PyYAML
 fabric==0.9.0
 -e hg+http://sorl-thumbnail.googlecode.com/hg/#egg=sorl-thumbnail
 pil
+django-tagging
+BeautifulSoup
