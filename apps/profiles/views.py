@@ -5,5 +5,5 @@ from profile.forms import SkillsForm
 def SkillsTest(request):
     skills_form = SkillsForm()
     direct_to_template(request, 
-                       'profile/skills_test.html', 
+                       'profiles/skills_test.html', 
                        {'skills_form':skills_form})
