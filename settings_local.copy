@@ -1,0 +1,68 @@
+from settings import *
+import logging
+
+logging.basicConfig(level=logging.DEBUG,)
+
+#SITE_ID = 1    # Put your debug site id here.
+
+#SESSION_COOKIE_DOMAIN = 'example.com'  # Put your domain here.
+
+ADMINS = (
+    # ('Your Name', 'your_email@domain.com'),
+)
+
+DATABASE_NAME = 'db_dev.sqlite3'
+
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    # Uncomment the next line to enable the admin:
+    # 'django.contrib.admin',
+
+    'django_extensions',
+    'schedule',
+
+    'officehours',
+    'registration',
+
+    'debug_toolbar',
+)
+
+DEBUG_TOOLBAR_PANELS = (
+    'debug_toolbar.panels.version.VersionDebugPanel',
+    'debug_toolbar.panels.timer.TimerDebugPanel',
+    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+    'debug_toolbar.panels.headers.HeaderDebugPanel',
+    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+    'debug_toolbar.panels.template.TemplateDebugPanel',
+    'debug_toolbar.panels.sql.SQLDebugPanel',
+    'debug_toolbar.panels.signals.SignalDebugPanel',
+    'debug_toolbar.panels.logger.LoggingPanel',
+)
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda x: True,
+    'INTERCEPT_REDIRECTS': False,
+}
+
+# Print email to console, Django>=1.2
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Print email to console, Django < 1.2
+# before using the dev server, run this command:
+# python -m smtpd -n -c DebuggingServer localhost:1025
+# see http://docs.djangoproject.com/en/1.1/topics/email/#testing-e-mail-sending
+EMAIL_HOST='localhost'
+EMAIL_PORT='1025'
