@@ -9,5 +9,7 @@ fabric==0.9.0
 sorl-thumbnail
 pil
 -e git+http://github.com/thauber/django-schedule.git#egg=django-schedule
+vobject             # django-schedule dependency
+python-dateutil     # django-schedule dependency
 django-tagging
 BeautifulSoup
