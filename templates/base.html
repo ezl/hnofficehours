@@ -2,6 +2,7 @@
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+  <title>HN Office Hours{% block extra_title %}{% endblock %}</title>
   {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -13,6 +14,13 @@
       {% endfor %}
     </ul>
     {% endif %}
+    <div id="header">
+      {% if request.user.is_authenticated %}
+        Logged in as {{ request.user.username }}. <a href="{% url logout %}">logout</a>
+      {% else %}
+        <a href="{% url login %}">login</a> or <a href="{% url register %}">signup</a>
+      {% endif %}
+    </div>
     {% block content %} {% endblock %}
   </div>
 </body>

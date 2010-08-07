@@ -1,7 +1,8 @@
 import urllib2
 from django import forms
 from django.conf import settings
-from BeautifulSoup import BeautifulSoup
+from retrieve_hn_user_data import retrieve_hn_user_data
+from django.contrib.auth.models import User
 
 
 class RegistrationForm(forms.Form):
@@ -9,11 +10,14 @@ class RegistrationForm(forms.Form):
 
     def clean(self):
         hn_username = self.cleaned_data['hn_username']
-        hn_profile_url = "http://news.ycombinator.com/user?id=%s" % hn_username
         hnoh_profile =  settings.USER_PROFILE_URL % hn_username
-        page = urllib2.urlopen(hn_profile_url).read()
-        if not hnoh_profile in page:
+        try:
+            user_data = retrieve_hn_user_data(hn_username)
+        except:
+            raise
+        if not hnoh_profile in user_data["about"]:
             raise forms.ValidationError('The url does not appear to be in your hn profile. Please paste %s into your hn profile. Note the trailing slash.' % hnoh_profile)
+        if User.objects.filter(username=hn_username).count() > 0:
+            errormsg = 'User "%s" already has an account' % hn_username
+            raise forms.ValidationError(errormsg)
         return self.cleaned_data
-
-
