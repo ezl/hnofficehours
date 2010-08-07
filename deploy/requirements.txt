@@ -15,3 +15,5 @@ django-tagging
 django-tagging-ext
 django-tagging-autocomplete
 BeautifulSoup
+pytz
+-e git+http://github.com/brosner/django-timezones.git#egg=django-timezones
