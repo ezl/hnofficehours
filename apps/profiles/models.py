@@ -6,7 +6,7 @@ from tagging_autocomplete.models import TagAutocompleteField
 
 class Profile(models.Model):
     user = models.OneToOneField(User)
-    skills = models.ManyToManyField('Skill')
+    skills = models.ManyToManyField('Skill', blank=True)
     def __unicode__(self):
         return unicode(self.user)
 

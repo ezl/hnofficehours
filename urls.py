@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # (r'^hnofficehours/', include('hnofficehours.foo.urls')),
     (r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'homepage.html'}),
     (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
-
+	(r'^ajax_select/', include('ajax_select.urls')),
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
