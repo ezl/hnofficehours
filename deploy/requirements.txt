@@ -15,3 +15,4 @@ django-tagging
 django-tagging-ext
 django-tagging-autocomplete
 BeautifulSoup
+django-ajax-selects
