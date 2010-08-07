@@ -48,7 +48,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -68,6 +68,15 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    "django.contrib.messages.context_processors.messages",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -95,10 +104,44 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
-    
-    'django_extensions',
 
+    'django_extensions',
+    'schedule',
+
+    'officehours',
     'registration',
+    'profiles',
 )
 
 USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
+
+
+# ------------------------
+# Deal with settings_local
+# ------------------------
+try:
+    import types
+    import settings_local
+    # Make sure we don't have any synchronization problems between settings
+    # files. This code will complain if, for example, you add an app to
+    # INSTALLED_APPS in this settings.py file but forget to add it to
+    # settings_local.py.
+    for item_name in dir(settings_local):
+        if item_name.startswith('__'):  # skip items in Python's namespace
+            continue
+        if item_name in locals().keys():
+            local_setting = getattr(settings_local, item_name)
+            entry_type = type(local_setting)
+            # skip strings and other scalar values
+            # (strings are iterable, which is why i'm not trying to cast to
+            # iter and check for TypeError, which is usually the right way)
+            if entry_type != types.ListType and entry_type != types.TupleType:
+                continue
+            original_setting = locals()[item_name]
+            for item in original_setting:
+                if item not in local_setting:
+                    print("WARNING: local settings: '%s' missing item '%s'" %
+                          (item_name, item))
+    from settings_local import *    # overwrite items in local namespace
+except ImportError:
+    pass
