@@ -2,8 +2,11 @@
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <link rel="shortcut icon" href="{{ MEDIA_URL}}favicon.ico" />
   <title>HN Office Hours{% block extra_title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="{{ MEDIA_URL}}favicon.ico">
+  <link href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css" type="text/css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/base.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   {% block extra_head %}{% endblock %}
 </head>
 <body>
