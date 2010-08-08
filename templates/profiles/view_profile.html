@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  {% if display_full_profile %}
+    <h1>{{ user.username }}</h1>
+    {% with user.get_profile as profile %}
+      <p><label>skype:</label> {{ profile.skype }}</p>
+      <p><label>aim:</label> {{ profile.aim }}</p>
+      <p><label>gchat:</label> {{ profile.gchat }}</p>
+      <p><label>phone:</label> {{ profile.phone }}</p>
+    {% endwith %}
+  {% else %}
+    <p>You need an account to see full-details.</p>
+  {% endif %}
+  {#  skills #}
+  {# times #}
+  <p>Available office hours:</p>
+  <ul>
+  {% for office_hour in office_hours %}
+    <li>{{ office_hour }}</li>
+  {% empty %}
+    <li>No office hours.</li>
+  {% endfor %}
+  </ul>
+</div>
+{% endblock content %}
