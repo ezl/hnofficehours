@@ -17,8 +17,8 @@ from retrieve_hn_user_data import retrieve_hn_user_data
 
 
 def register(request, template_name='registration/register.html'):
+    profile_url = settings.USER_PROFILE_URL % 'username'
     if request.method == 'GET':
-        profile_url = settings.USER_PROFILE_URL % 'username'
         form = RegistrationForm()
     else: # POST
         form = RegistrationForm(data=request.POST)
