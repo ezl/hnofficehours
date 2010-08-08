@@ -10,7 +10,7 @@ td    { font-family:Verdana; font-size:10pt; color:#828282; }
 .admin td   { font-family:Verdana; font-size:8.5pt; color:#000000; }
 .subtext td { font-family:Verdana; font-size:  7pt; color:#828282; }
 
-input    { font-family:Courier; font-size:10pt; color:#000000; }
+input    { font-size:10pt; color:#000000; }
 input[type=\"submit\"] { font-family:Verdana; }
 textarea { font-family:Courier; font-size:10pt; color:#000000; }
 
@@ -48,8 +48,14 @@ pre:hover {overflow:auto}
 /*  end stolen block */
 
 /* begin our stuff */
-header,#header { background:#FF6600; color:black; text-align:right; }
-.container { background:#f6f6ef; margin:1em auto; width:960px; }
+/* base.html */
+#top > .messages { background:#FFB; color:#222; border-bottom:1px solid #DDA; padding:3px; }
+
+.container { background:#f6f6ef; margin:1em auto; min-height:400px; width:960px; }
+
+header,#header { border-bottom:4px solid #FF6600; color:black; position:relative; }
+#logo { background:url(../favicon.gif) no-repeat scroll 0 50% transparent; padding-left: 20px; margin-left: 6px; font-family:Verdana; font-size:22px; }
+#nav { position:absolute; right:0; top:0; }
 
 .container > p { margin:0 1em; }
 
