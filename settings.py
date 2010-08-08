@@ -128,6 +128,7 @@ AJAX_LOOKUP_CHANNELS = {
 }
 
 GLOBAL_CALENDAR_SLUG = 'cal'
+FIRST_DAY_OF_WEEK = 1 # Monday for USA
 
 
 # ------------------------
