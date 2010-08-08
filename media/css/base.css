@@ -19,8 +19,9 @@ a:hover { border-bottom:2px solid #f60;  }
 #top > .messages { background:#FFB; color:#222; border-bottom:1px solid #DDA; padding:3px; }
 
 .container { background:#f6f6ef; margin:1em auto; min-height:400px; width:960px; }
-
-header,#header { border-bottom:4px solid #FF6600; color:black; position:relative; }
+.shadow-up { background:url(../images/bg-shadow-top.png) no-repeat scroll center bottom #f6f6ef; }
+.shadow-down { background:url(../images/bg-shadow-bottom.png) no-repeat scroll center top #f6f6ef; height: 25px; }
+header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5px; position:relative; }
 #logo { background:url(../favicon.gif) no-repeat scroll 0 50% transparent; padding-left: 20px; margin-left: 6px; font-family:Verdana; font-size:22px; }
 #logo a { color:black; }
 #nav { position:absolute; right:0; top:0; }
