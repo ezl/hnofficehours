@@ -103,7 +103,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
 
     # third-party apps:
     'ajax_select',
@@ -116,10 +116,11 @@ INSTALLED_APPS = (
     'profiles',
 )
 
-USER_PROFILE_URL = "http://hnofficehours.com/user/%s/" # the place holder is for the username
+USER_PROFILE_URL = "http://hnofficehours.com/profile/%s/" # the place holder is for the username
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
+AUTH_PROFILE_MODULE = 'profiles.Profile'
 
 AJAX_LOOKUP_CHANNELS = {
     'profile_skills' : dict(model='profiles.Profile',search_field='skills'),
