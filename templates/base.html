@@ -36,7 +36,7 @@
       </div>
       <div id="nav">
       {% if request.user.is_authenticated %}
-        Logged in as <a href="{% url profile %}">{{ request.user.username }}</a>. <a href="{% url logout %}">logout</a>
+        Logged in as <a href="{% url view_profile username=user.username %}">{{ request.user.username }}</a>. <a href="{% url logout %}">logout</a>
       {% else %}
         <a href="{% url login %}">login</a> or <a href="{% url register %}">signup</a>
       {% endif %}
