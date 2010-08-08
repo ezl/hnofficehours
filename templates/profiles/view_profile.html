@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
+<div class="pretty">
   {% if display_full_profile %}
     <h1>{{ user.username }}</h1>
     {% with user.get_profile as profile %}
@@ -15,7 +15,7 @@
   {% endif %}
   {#  skills #}
   {# times #}
-  <p>Available office hours:</p>
+  <h2>Available office hours:</h2>
   <ul>
   {% for office_hour in office_hours %}
     {% include "profiles/office_hour.html" %}
