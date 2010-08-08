@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<h1>Current users</h1>
+{% for user in users %}
+  <a href="{% url view_profile username=user.username %}">{{ user.username }}</a>
+{% endfor%}
+</div>
+{% endblock content %}
