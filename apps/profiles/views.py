@@ -59,10 +59,10 @@ def profile(request, template_name="profiles/skills_test.html"):
     user = request.user
     profile = user.profile
     def update_profile():
-        pass
-        # profile_form = ProfileForm(request.POST)
-        # if profile_form.is_valid():
-        #     profile_form.save()
+        profile_form = ProfileForm(data=request.POST,
+                                   instance=request.user.get_profile())
+        if profile_form.is_valid():
+            profile_form.save()
     def update_skills():
         tag_list = request.POST.get('skills_text').split(',')
         for tag in tag_list:
@@ -81,7 +81,7 @@ def profile(request, template_name="profiles/skills_test.html"):
             update_profile()
         else: #origin == "skill":
             update_skills()
-    profile_form = ProfileForm()
+    profile_form = ProfileForm(instance=request.user.get_profile())
     skill_form = ProfileSkillsForm()
     skills = profile.skills.all()
     return direct_to_template(request, template_name,
