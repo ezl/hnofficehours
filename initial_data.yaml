@@ -1,0 +1,452 @@
+- fields: {app_label: schedule, model: calendar, name: calendar}
+  model: contenttypes.contenttype
+  pk: 9
+- fields: {app_label: schedule, model: calendarrelation, name: calendar relation}
+  model: contenttypes.contenttype
+  pk: 10
+- fields: {app_label: contenttypes, model: contenttype, name: content type}
+  model: contenttypes.contenttype
+  pk: 5
+- fields: {app_label: schedule, model: event, name: event}
+  model: contenttypes.contenttype
+  pk: 12
+- fields: {app_label: schedule, model: eventrelation, name: event relation}
+  model: contenttypes.contenttype
+  pk: 13
+- fields: {app_label: auth, model: group, name: group}
+  model: contenttypes.contenttype
+  pk: 2
+- fields: {app_label: admin, model: logentry, name: log entry}
+  model: contenttypes.contenttype
+  pk: 8
+- fields: {app_label: auth, model: message, name: message}
+  model: contenttypes.contenttype
+  pk: 4
+- fields: {app_label: schedule, model: occurrence, name: occurrence}
+  model: contenttypes.contenttype
+  pk: 14
+- fields: {app_label: auth, model: permission, name: permission}
+  model: contenttypes.contenttype
+  pk: 1
+- fields: {app_label: profiles, model: profile, name: profile}
+  model: contenttypes.contenttype
+  pk: 15
+- fields: {app_label: schedule, model: rule, name: rule}
+  model: contenttypes.contenttype
+  pk: 11
+- fields: {app_label: sessions, model: session, name: session}
+  model: contenttypes.contenttype
+  pk: 6
+- fields: {app_label: sites, model: site, name: site}
+  model: contenttypes.contenttype
+  pk: 7
+- fields: {app_label: profiles, model: skill, name: skill}
+  model: contenttypes.contenttype
+  pk: 16
+- fields: {app_label: auth, model: user, name: user}
+  model: contenttypes.contenttype
+  pk: 3
+- fields: {expire_date: !!timestamp '2010-08-22 18:46:06.530010', session_data: 'gAJ9cQEuMDVkMmQ0ODM1MTYzNmRjMmFhYTQxODRkNTZkNzhkN2Y=
+
+      '}
+  model: sessions.session
+  pk: 8999d9f4d69846fc8baf2f565b107ac9
+- fields: {domain: example.com, name: example.com}
+  model: sites.site
+  pk: 1
+- fields: {name: cal, slug: cal}
+  model: schedule.calendar
+  pk: 1
+- fields: {calendar: 1, content_type: 7, distinction: null, inheritable: true, object_id: 1}
+  model: schedule.calendarrelation
+  pk: 1
+- fields: {description: 'Weekly on Tue., Thu., Sat.', frequency: WEEKLY, name: 'Weekly
+      on Tue., Thu., Sat.', params: 'byweekday:1,3,5;'}
+  model: schedule.rule
+  pk: 1
+- fields: {description: 'Weekly on Fri., Sat., Sun.', frequency: WEEKLY, name: 'Weekly
+      on Fri., Sat., Sun.', params: 'byweekday:4,5,6;'}
+  model: schedule.rule
+  pk: 2
+- fields: {description: 'Weekly on Mon., Thu.', frequency: WEEKLY, name: 'Weekly on
+      Mon., Thu.', params: 'byweekday:0,3;'}
+  model: schedule.rule
+  pk: 3
+- fields: {description: 'Weekly on Mon., Sat.', frequency: WEEKLY, name: 'Weekly on
+      Mon., Sat.', params: 'byweekday:0,5;'}
+  model: schedule.rule
+  pk: 4
+- fields: {description: 'Weekly on Mon., Tue., Wed., Fri., Sat.', frequency: WEEKLY,
+    name: 'Weekly on Mon., Tue., Wed., Fri., Sat.', params: 'byweekday:0,1,2,4,5;'}
+  model: schedule.rule
+  pk: 5
+- fields: {description: 'Weekly on Tue., Sat.', frequency: WEEKLY, name: 'Weekly on
+      Tue., Sat.', params: 'byweekday:1,5;'}
+  model: schedule.rule
+  pk: 6
+- fields: {description: 'Weekly on Mon., Tue., Wed., Thu., Fri.', frequency: WEEKLY,
+    name: 'Weekly on Mon., Tue., Wed., Thu., Fri.', params: 'byweekday:0,1,2,3,4;'}
+  model: schedule.rule
+  pk: 7
+- fields: {description: 'Weekly on Thu., Fri.', frequency: WEEKLY, name: 'Weekly on
+      Thu., Fri.', params: 'byweekday:3,4;'}
+  model: schedule.rule
+  pk: 8
+- fields: {description: Weekly on Tue., frequency: WEEKLY, name: Weekly on Tue., params: 'byweekday:1;'}
+  model: schedule.rule
+  pk: 9
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:30:29.933114', creator: 4,
+    description: null, end: !!timestamp '2010-08-09 19:00:00', end_recurring_period: !!timestamp '2010-10-31
+      00:00:00', rule: 1, start: !!timestamp '2010-08-09 17:00:00', title: testicles}
+  model: schedule.event
+  pk: 1
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:30:59.565468', creator: 4,
+    description: null, end: !!timestamp '2010-08-09 23:30:00', end_recurring_period: !!timestamp '2010-10-31
+      00:00:00', rule: 2, start: !!timestamp '2010-08-09 21:00:00', title: testicles}
+  model: schedule.event
+  pk: 2
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:31:54.808494', creator: 3,
+    description: null, end: !!timestamp '2010-08-02 09:00:00', end_recurring_period: !!timestamp '2010-11-06
+      00:00:00', rule: 3, start: !!timestamp '2010-08-02 07:30:00', title: rguzman}
+  model: schedule.event
+  pk: 3
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:32:27.866668', creator: 3,
+    description: null, end: !!timestamp '2010-08-02 15:30:00', end_recurring_period: !!timestamp '2010-11-06
+      00:00:00', rule: 4, start: !!timestamp '2010-08-02 15:00:00', title: rguzman}
+  model: schedule.event
+  pk: 4
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:33:38.651501', creator: 2,
+    description: null, end: !!timestamp '2010-08-03 13:00:00', end_recurring_period: !!timestamp '2010-12-03
+      00:00:00', rule: 5, start: !!timestamp '2010-08-03 12:00:00', title: Deuterium}
+  model: schedule.event
+  pk: 5
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:36:47.038455', creator: 1,
+    description: null, end: !!timestamp '2010-08-08 19:00:00', end_recurring_period: !!timestamp '2010-09-30
+      00:00:00', rule: 6, start: !!timestamp '2010-08-08 14:00:00', title: ezl}
+  model: schedule.event
+  pk: 6
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:40:14.007174', creator: 1,
+    description: null, end: !!timestamp '2010-08-19 05:00:00', end_recurring_period: !!timestamp '2010-11-27
+      00:00:00', rule: 7, start: !!timestamp '2010-08-04 02:00:00', title: ezl}
+  model: schedule.event
+  pk: 7
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:44:04.405033', creator: 1,
+    description: null, end: !!timestamp '2010-08-10 14:00:00', end_recurring_period: !!timestamp '2010-11-20
+      00:00:00', rule: 8, start: !!timestamp '2010-08-04 13:30:00', title: ezl}
+  model: schedule.event
+  pk: 8
+- fields: {calendar: 1, created_on: !!timestamp '2010-08-08 18:46:03.484474', creator: 1,
+    description: null, end: !!timestamp '2010-08-10 19:00:00', end_recurring_period: !!timestamp '2010-11-20
+      00:00:00', rule: 9, start: !!timestamp '2010-08-04 18:30:00', title: ezl}
+  model: schedule.event
+  pk: 9
+- fields:
+    aim: ezl_aim
+    gchat: ezl_gchat
+    is_available: false
+    phone: 3132-555-1212
+    skills: [1, 2, 3, 4]
+    skype: ezl_skype
+    timezone: America/Chicago
+    user: 1
+  model: profiles.profile
+  pk: 1
+- fields:
+    aim: null
+    gchat: null
+    is_available: false
+    phone: null
+    skills: [5, 6, 7, 8, 9, 10]
+    skype: null
+    timezone: America/Chicago
+    user: 2
+  model: profiles.profile
+  pk: 2
+- fields:
+    aim: ''
+    gchat: rguzman
+    is_available: true
+    phone: ''
+    skills: [3, 11, 12, 13, 14, 15, 16]
+    skype: rodguze
+    timezone: Pacific/Fiji
+    user: 3
+  model: profiles.profile
+  pk: 3
+- fields:
+    aim: balls
+    gchat: ''
+    is_available: false
+    phone: 1-800-HOT-SEXX
+    skills: [17, 18]
+    skype: ''
+    timezone: America/Chicago
+    user: 4
+  model: profiles.profile
+  pk: 4
+- fields: {name: dragon slaying}
+  model: profiles.skill
+  pk: 1
+- fields: {name: ' texas hold''em'}
+  model: profiles.skill
+  pk: 2
+- fields: {name: ' python'}
+  model: profiles.skill
+  pk: 3
+- fields: {name: ' competitive eating'}
+  model: profiles.skill
+  pk: 4
+- fields: {name: css}
+  model: profiles.skill
+  pk: 5
+- fields: {name: ' javascript'}
+  model: profiles.skill
+  pk: 6
+- fields: {name: ' jquery'}
+  model: profiles.skill
+  pk: 7
+- fields: {name: ' starcraft2'}
+  model: profiles.skill
+  pk: 8
+- fields: {name: ' WoW'}
+  model: profiles.skill
+  pk: 9
+- fields: {name: ' procrastination'}
+  model: profiles.skill
+  pk: 10
+- fields: {name: general startup advice}
+  model: profiles.skill
+  pk: 11
+- fields: {name: ' django'}
+  model: profiles.skill
+  pk: 12
+- fields: {name: ' emacs mastery'}
+  model: profiles.skill
+  pk: 13
+- fields: {name: ' venture capital'}
+  model: profiles.skill
+  pk: 14
+- fields: {name: ' sounding board for ideas'}
+  model: profiles.skill
+  pk: 15
+- fields: {name: ' how long should you brush your teeth?'}
+  model: profiles.skill
+  pk: 16
+- fields: {name: oral}
+  model: profiles.skill
+  pk: 17
+- fields: {name: watersports}
+  model: profiles.skill
+  pk: 18
+- fields: {codename: add_logentry, content_type: 8, name: Can add log entry}
+  model: auth.permission
+  pk: 22
+- fields: {codename: change_logentry, content_type: 8, name: Can change log entry}
+  model: auth.permission
+  pk: 23
+- fields: {codename: delete_logentry, content_type: 8, name: Can delete log entry}
+  model: auth.permission
+  pk: 24
+- fields: {codename: add_group, content_type: 2, name: Can add group}
+  model: auth.permission
+  pk: 4
+- fields: {codename: change_group, content_type: 2, name: Can change group}
+  model: auth.permission
+  pk: 5
+- fields: {codename: delete_group, content_type: 2, name: Can delete group}
+  model: auth.permission
+  pk: 6
+- fields: {codename: add_message, content_type: 4, name: Can add message}
+  model: auth.permission
+  pk: 10
+- fields: {codename: change_message, content_type: 4, name: Can change message}
+  model: auth.permission
+  pk: 11
+- fields: {codename: delete_message, content_type: 4, name: Can delete message}
+  model: auth.permission
+  pk: 12
+- fields: {codename: add_permission, content_type: 1, name: Can add permission}
+  model: auth.permission
+  pk: 1
+- fields: {codename: change_permission, content_type: 1, name: Can change permission}
+  model: auth.permission
+  pk: 2
+- fields: {codename: delete_permission, content_type: 1, name: Can delete permission}
+  model: auth.permission
+  pk: 3
+- fields: {codename: add_user, content_type: 3, name: Can add user}
+  model: auth.permission
+  pk: 7
+- fields: {codename: change_user, content_type: 3, name: Can change user}
+  model: auth.permission
+  pk: 8
+- fields: {codename: delete_user, content_type: 3, name: Can delete user}
+  model: auth.permission
+  pk: 9
+- fields: {codename: add_contenttype, content_type: 5, name: Can add content type}
+  model: auth.permission
+  pk: 13
+- fields: {codename: change_contenttype, content_type: 5, name: Can change content
+      type}
+  model: auth.permission
+  pk: 14
+- fields: {codename: delete_contenttype, content_type: 5, name: Can delete content
+      type}
+  model: auth.permission
+  pk: 15
+- fields: {codename: add_profile, content_type: 15, name: Can add profile}
+  model: auth.permission
+  pk: 43
+- fields: {codename: change_profile, content_type: 15, name: Can change profile}
+  model: auth.permission
+  pk: 44
+- fields: {codename: delete_profile, content_type: 15, name: Can delete profile}
+  model: auth.permission
+  pk: 45
+- fields: {codename: add_skill, content_type: 16, name: Can add skill}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_skill, content_type: 16, name: Can change skill}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_skill, content_type: 16, name: Can delete skill}
+  model: auth.permission
+  pk: 48
+- fields: {codename: add_calendar, content_type: 9, name: Can add calendar}
+  model: auth.permission
+  pk: 25
+- fields: {codename: change_calendar, content_type: 9, name: Can change calendar}
+  model: auth.permission
+  pk: 26
+- fields: {codename: delete_calendar, content_type: 9, name: Can delete calendar}
+  model: auth.permission
+  pk: 27
+- fields: {codename: add_calendarrelation, content_type: 10, name: Can add calendar
+      relation}
+  model: auth.permission
+  pk: 28
+- fields: {codename: change_calendarrelation, content_type: 10, name: Can change calendar
+      relation}
+  model: auth.permission
+  pk: 29
+- fields: {codename: delete_calendarrelation, content_type: 10, name: Can delete calendar
+      relation}
+  model: auth.permission
+  pk: 30
+- fields: {codename: add_event, content_type: 12, name: Can add event}
+  model: auth.permission
+  pk: 34
+- fields: {codename: change_event, content_type: 12, name: Can change event}
+  model: auth.permission
+  pk: 35
+- fields: {codename: delete_event, content_type: 12, name: Can delete event}
+  model: auth.permission
+  pk: 36
+- fields: {codename: add_eventrelation, content_type: 13, name: Can add event relation}
+  model: auth.permission
+  pk: 37
+- fields: {codename: change_eventrelation, content_type: 13, name: Can change event
+      relation}
+  model: auth.permission
+  pk: 38
+- fields: {codename: delete_eventrelation, content_type: 13, name: Can delete event
+      relation}
+  model: auth.permission
+  pk: 39
+- fields: {codename: add_occurrence, content_type: 14, name: Can add occurrence}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_occurrence, content_type: 14, name: Can change occurrence}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_occurrence, content_type: 14, name: Can delete occurrence}
+  model: auth.permission
+  pk: 42
+- fields: {codename: add_rule, content_type: 11, name: Can add rule}
+  model: auth.permission
+  pk: 31
+- fields: {codename: change_rule, content_type: 11, name: Can change rule}
+  model: auth.permission
+  pk: 32
+- fields: {codename: delete_rule, content_type: 11, name: Can delete rule}
+  model: auth.permission
+  pk: 33
+- fields: {codename: add_session, content_type: 6, name: Can add session}
+  model: auth.permission
+  pk: 16
+- fields: {codename: change_session, content_type: 6, name: Can change session}
+  model: auth.permission
+  pk: 17
+- fields: {codename: delete_session, content_type: 6, name: Can delete session}
+  model: auth.permission
+  pk: 18
+- fields: {codename: add_site, content_type: 7, name: Can add site}
+  model: auth.permission
+  pk: 19
+- fields: {codename: change_site, content_type: 7, name: Can change site}
+  model: auth.permission
+  pk: 20
+- fields: {codename: delete_site, content_type: 7, name: Can delete site}
+  model: auth.permission
+  pk: 21
+- fields:
+    date_joined: 2010-08-08 18:04:32.007053
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2010-08-08 18:40:43.842245
+    last_name: ''
+    password: sha1$c5cac$cbf143782529829314a3503e24aa6be4b7d0adcd
+    user_permissions: []
+    username: ezl
+  model: auth.user
+  pk: 1
+- fields:
+    date_joined: 2010-08-08 18:07:54.374824
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2010-08-08 18:32:52.580701
+    last_name: ''
+    password: sha1$957b9$1cbb7b304ad94dd1db41450032626623ac1b00aa
+    user_permissions: []
+    username: Deuterium
+  model: auth.user
+  pk: 2
+- fields:
+    date_joined: 2010-08-08 18:10:06.708972
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2010-08-08 18:31:18.714856
+    last_name: ''
+    password: sha1$d8a24$4a0ac55a3c6b46aeb5cbfa26b02911056d2e5dce
+    user_permissions: []
+    username: rguzman
+  model: auth.user
+  pk: 3
+- fields:
+    date_joined: 2010-08-08 18:15:06.020391
+    email: ''
+    first_name: ''
+    groups: []
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2010-08-08 18:17:37.636343
+    last_name: ''
+    password: sha1$4da69$fb222bb9ec5e78170738ea2bec7ccdeff2212332
+    user_permissions: []
+    username: testicles
+  model: auth.user
+  pk: 4
+
