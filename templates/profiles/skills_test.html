@@ -4,10 +4,6 @@
     {{block.super}}
     <link type="text/css" href="/site_media/jqac/jquery.autocomplete.css"/>
     <style>
-        h1{
-            color: black;
-            font-size: 30px;
-        }
         a.ajax_delete{
             color: black;
             font-size: 16px;
@@ -26,54 +22,58 @@
 <script type="text/javascript">
 $(function(){
     $('a.ajax_delete').click(function(){
-        $.ajax({
-          url: "/profile/{{profile.id}}/skill/" + this.id +"/remove/",
-          success: function(data) {
-            cdata = JSON.parse(data)
+        var skillID = $(this).closest('li').attr('id').split('-')[1];
+        $.getJSON(
+          "/profile/{{profile.id}}/skill/" + skillID +"/remove/",
+          function(cdata) {
             if(cdata.status == "success"){
-                $("li#" + cdata.skill_id).remove()
+                $("#skill-" + cdata.skill_id).remove();
             }
             else{
                 alert(cdata.status);
             }
           }
-        });
+        );
     });
 });
 </script>
 {% endblock javascript %}
 
 {% block content %}
-
-<h1>Your Profile</h1>
-
 <form method="POST" action="">{% csrf_token %}
-    <input type="hidden" name="origin" value="profile" />
+    <input type="hidden" style="display:none;" name="origin" value="profile" />
+    <div class="pretty">
+    <h1>Update Your Profile</h1>
     {{profile_form.as_p}}
     <input type="submit" value="Update profile" />
+    </div>
 </form>
-
-<br><br><br>
-
 <form method="POST" action="">{% csrf_token %}
-    <input type="hidden" name="origin" value="skill" />
+    <input type="hidden" style="display:none;" name="origin" value="skill" />
+    <div class="pretty">
+    <h1>Add Skills</h1>
+    <p class="help">If entering multiple skills, deliminate skills using commas</p>
     {{skill_form.as_p}}
     <input type="submit" value="Add" />
+    </div>
 </form>
-<div class="container">
-    Your skills:
-    <br>
+<div class="pretty">
+    <h1>Your Skills</h1>
+    <p  class="help">To remove a skill, click on the &times;</p>
     <ul>
-        {% for skill in skills %}
-            <li id="{{skill.id}}" class="skills">
-                <a id="{{skill.id}}" class="ajax_delete" onclick="">
-                    &#10799;           
-                </a>
-                &nbsp;
+        {% for skill in skills %}{% spaceless %}
+            <li id="skill-{{skill.id}}" class="skills">
+                <a class="ajax_delete">&times;</a>
                 {{skill}}
             </li>
-        {% endfor %}
+        {% endspaceless %}{% endfor %}
     </ul>
 </div>
-this page should also have a <a href="">link to add office hours</a>
+<div class="pretty">
+  <h1>Tasks</h1>
+  <ul>
+    <li><a href="{% url schedule %}">Add office hours</a></li>
+  </ul>
+
+</div>
 {% endblock content %}
