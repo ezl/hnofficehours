@@ -55,7 +55,7 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
 
 
 @login_required
-def profile(request):
+def profile(request, template_name="profiles/skills_test.html"):
     user = request.user
     profile = user.profile
     if request.method == "POST":
@@ -73,7 +73,7 @@ def profile(request):
     profile_form = ProfileForm()
     skill_form = ProfileSkillsForm()
     skills = profile.skills.all()
-    return direct_to_template(request, 'profiles/skills_test.html', 
+    return direct_to_template(request, template_name,
                                         {'skill_form':skill_form,
                                          'profile_form':profile_form,
                                          'profile':profile,
