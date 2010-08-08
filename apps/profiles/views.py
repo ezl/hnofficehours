@@ -54,12 +54,12 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
                               context_instance=RequestContext(request))
 
 
-#@login_required
+@login_required
 def profile(request):
     user = request.user
     profile = user.profile
     if request.method == "POST":
-        tag_list = request.POST.get('skills_text').strip(',').split(' ')
+        tag_list = request.POST.get('skills_text').split(',')
         for tag in tag_list:
             if tag and tag != '':
                 skill, created = Skill.objects.get_or_create(name=tag)
@@ -70,9 +70,11 @@ def profile(request):
             for skill in skills_list:
                 profile.skills.add(skill)
         profile.save()
-    profile_form = ProfileSkillsForm()
+    profile_form = ProfileForm()
+    skill_form = ProfileSkillsForm()
     skills = profile.skills.all()
     return direct_to_template(request, 'profiles/skills_test.html', 
-                                        {'profile_form':profile_form,
+                                        {'skill_form':skill_form,
+                                         'profile_form':profile_form,
                                          'profile':profile,
                                          'skills':skills})

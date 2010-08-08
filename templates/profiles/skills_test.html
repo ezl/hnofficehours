@@ -4,12 +4,17 @@
     {{block.super}}
     <link type="text/css" href="/site_media/jqac/jquery.autocomplete.css"/>
     <style>
+        h1{
+            color: black;
+            font-size: 30px;
+        }
         a.ajax_delete{
             color: black;
             font-size: 16px;
         }        
         a.ajax_delete:hover{
             color: red;
+            cursor: pointer;
         }
     </style>
 {% endblock %}
@@ -40,18 +45,22 @@ $(function(){
 
 {% block content %}
 
+<h1>Your Profile</h1>
+
+{{profile_form.as_p}}
+
+<br><br><br>
+
 <form method="POST" action="">{% csrf_token %}
-    Your Profile
-    {{profile_form.as_p}}
+    {{skill_form.as_p}}
     <input type="submit" value="Add" />
 </form>
-
 <div class="container">
     Your skills:
     <br>
     <ul>
         {% for skill in skills %}
-            <li id="{{skill.id}}">
+            <li id="{{skill.id}}" class="skills">
                 <a id="{{skill.id}}" class="ajax_delete" onclick="">
                     &#10799;           
                 </a>
