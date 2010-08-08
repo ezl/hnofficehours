@@ -15,7 +15,8 @@ class EventForm(SpanForm):
     end_recurring_period = forms.DateTimeField(label="Repeats until",
                                                required=False,
                                                help_text = _("This date is ignored for one-time-only events."))
-    repeats_on = forms.MultipleChoiceField(choices=WEEKDAY_CHOICES, required=True,
+    repeats_on = forms.MultipleChoiceField(choices=WEEKDAY_CHOICES,
+                                           required=False,
                                            widget=forms.CheckboxSelectMultiple())
 
     class Meta:
