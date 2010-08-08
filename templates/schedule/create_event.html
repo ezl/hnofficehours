@@ -33,7 +33,7 @@
 </style>
 <script type="text/javascript">
 function doStuff(){
-  $('form tbody > tr:gt(4)').toggleClass('disable',function() { return !$('#id_repeats').is(':checked'); });
+  $('form tbody > tr:gt(2)').toggleClass('disable',function() { return !$('#id_repeats').is(':checked'); });
 }
 $(function(){
   $('#id_repeats').click(doStuff);
