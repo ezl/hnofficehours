@@ -291,7 +291,10 @@ div.calendarname {
 }
 
 div.navigation {
+  float:left;
+  width: 100px;
   text-align:center;
+  margin:0;
 }
 
 div.navigation a {
@@ -300,4 +303,13 @@ div.navigation a {
 
 div.tablewrapper {
     text-align:center;
+}
+.pretty { clear:none; }
+table.pretty thead {
+  background: #ddd;
+  font-size: 1.2em;
+}
+table.pretty tfoot {
+  background: #ddd;
+  font-size: 0.8em;
 }
