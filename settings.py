@@ -127,6 +127,8 @@ AJAX_LOOKUP_CHANNELS = {
     # specifying the model Profile in the profiles app, and searching against the 'skills' field
 }
 
+GLOBAL_CALENDAR_SLUG = 'cal'
+
 
 # ------------------------
 # Deal with settings_local

@@ -1,4 +1,4 @@
-{% load scheduletags %}
+{% load scheduletags %} {% load officehourstags %}
 <table align="center" class="calendar">
 {% if day_names %}
 <tr class="daysofweek">
@@ -9,7 +9,7 @@
 {% for week in month.get_weeks %}
     <tr>
     <td>
-        <a href="{% url week_calendar calendar.slug %}{% querystring_for_date week.start %}">
+        <a href="{% url week_calendar %}{% querystring_for_date week.start %}">
             {{week.start|date:"W"}}
         </a>
     </td>
