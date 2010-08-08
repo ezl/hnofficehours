@@ -19,4 +19,10 @@ Also see <a href="http://dev.sympodial.com/static/images/hno/Proof5.png">Proof5<
 <br />
 <br />
 <br />
+<h2>Current office hours:</h2>
+{% for office_hour in office_hours %}
+  {% include "office_hour.html" %}
+{% endfor %}
+<br />
+<br />
 {% endblock %}

@@ -18,7 +18,7 @@
   <p>Available office hours:</p>
   <ul>
   {% for office_hour in office_hours %}
-    <li>{{ office_hour }}</li>
+    {% include "profiles/office_hour.html" %}
   {% empty %}
     <li>No office hours.</li>
   {% endfor %}
