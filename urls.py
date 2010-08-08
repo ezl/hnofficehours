@@ -8,9 +8,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Example:
     # (r'^hnofficehours/', include('hnofficehours.foo.urls')),
-    (r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'homepage.html'}),
+    (r'^proposal/$', 'django.views.generic.simple.direct_to_template', {'template': 'homepage.html'}),
     (r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
-	(r'^ajax_select/', include('ajax_select.urls')),
+    (r'^ajax_select/', include('ajax_select.urls')),
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -21,9 +21,9 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'logout/$', 'django.contrib.auth.views.logout', kwargs={'next_page': '/'}, name='logout'),
     url(r'^register/$', 'registration.views.register', name='register'),
-    url(r'^register/finish/$', 'registration.views.set_password', name='set_password'),	
+    url(r'^register/finish/$', 'registration.views.set_password', name='set_password'), 
     url(r'^profile/', include('profiles.urls')),
-    url(r'^beta/$', 'django.views.generic.simple.direct_to_template',
+    url(r'^$', 'django.views.generic.simple.direct_to_template',
         {'template':'index.html'}, name='index'),
 )
 
