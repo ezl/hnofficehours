@@ -54,7 +54,7 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
                               context_instance=RequestContext(request))
 
 
-#@login_required
+@login_required
 def profile(request):
     user = request.user
     profile = user.profile
