@@ -24,7 +24,13 @@ $(function(){
         $.ajax({
           url: "/profile/{{profile.id}}/skill/" + this.id +"/remove/",
           success: function(data) {
-            alert(data);
+            cdata = JSON.parse(data)
+            if(cdata.status == "success"){
+                $("li#" + cdata.skill_id).remove()
+            }
+            else{
+                alert(cdata.status);
+            }
           }
         });
     });
@@ -45,7 +51,7 @@ $(function(){
     <br>
     <ul>
         {% for skill in skills %}
-            <li>
+            <li id="{{skill.id}}">
                 <a id="{{skill.id}}" class="ajax_delete" onclick="">
                     &#10799;           
                 </a>

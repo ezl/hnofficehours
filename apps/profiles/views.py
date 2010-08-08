@@ -10,6 +10,7 @@ from schedule.models import Event
 from profiles.models import *
 from profiles.forms import ProfileForm, ProfileSkillsForm
 from django.contrib.auth.decorators import login_required
+from django.utils import simplejson
 
 def userprofile(request, username=None, template_name='profiles/profile.html'):
     form = ProfileForm()
@@ -17,11 +18,17 @@ def userprofile(request, username=None, template_name='profiles/profile.html'):
                               context_instance=RequestContext(request))
 
 def ajax_view(request, profile_id, skill_id, verb):
+    datadict = {'profile_id':profile_id, 'skill_id':skill_id, 'verb':verb}
     profile = Profile.objects.get(id = profile_id)
     skill = Skill.objects.get(id = skill_id)
     if verb == "remove":
-        profile.skills.remove(skill)
-        return HttpResponse("success")
+        try:
+            profile.skills.remove(skill)
+        except Exception, e:
+            datadict['status'] = "failure"
+        else:
+            datadict['status'] = "success"
+        return HttpResponse(simplejson.dumps(datadict))
     else:
         return HttpResponse("verb unrecognized")
 
