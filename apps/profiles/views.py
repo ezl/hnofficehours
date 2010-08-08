@@ -70,9 +70,11 @@ def profile(request):
             for skill in skills_list:
                 profile.skills.add(skill)
         profile.save()
-    profile_form = ProfileSkillsForm()
+    profile_form = ProfileForm()
+    skill_form = ProfileSkillsForm()
     skills = profile.skills.all()
     return direct_to_template(request, 'profiles/skills_test.html', 
-                                        {'profile_form':profile_form,
+                                        {'skill_form':skill_form,
+                                         'profile_form':profile_form,
                                          'profile':profile,
                                          'skills':skills})
