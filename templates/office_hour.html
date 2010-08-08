@@ -1,15 +1,16 @@
 <div class="officehour">
 <pre>
-if officehour.creator.is_available:
+if office_hour.creator.is_available:
   make this div green
 else:
   normal
 
   {{ office_hour }}
-  officehour.creator
-  officehour.starttime
-  officehour.endtime
-  for skill in officehour.creator.skills:
-    skills
+  {{ office_hour.event.creator }}
+  {{ office_hour.start }}
+  {{ office_hour.end }}
+  {% for skill in office_hour.event.creator.skills %}
+    {{ skill }}
+  {% endfor %}
 </pre>
 </div>
