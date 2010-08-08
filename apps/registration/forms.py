@@ -11,7 +11,7 @@ class SetPasswordForm(SetPasswordForm):
     new_password2 = forms.CharField(label="Confirm password", widget=forms.PasswordInput)
 
 class RegistrationForm(forms.Form):
-    hn_username = forms.CharField()
+    hn_username = forms.CharField(label="HN Username:")
 
     def clean_hn_username(self):
         hn_username = self.cleaned_data['hn_username']

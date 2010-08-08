@@ -14,6 +14,9 @@
 {% block extra_head %}
 <script>
 $(function(){
+  // minor potential issues to save for a later date to make me feel important:
+  //   if HN username is blank, HNOH url is stupid and HN profile link is dumb
+  //   baseURL depends on {{ profile_url }}
   var el = $('#profileURL');
   var url = el.val();
   var baseUrl = url.substr(0,url.lastIndexOf('/',url.length-2) + 1);
