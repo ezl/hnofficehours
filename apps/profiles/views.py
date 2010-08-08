@@ -47,7 +47,7 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
     display_full_profile = _can_view_full_profile(request.user)
     events = Event.objects.filter(creator=user)
     start = datetime.now()
-    end = start + timedelta(days=7)
+    end = start + timedelta(days=30)
     office_hours = reduce(lambda x,y: x+y, [e.get_occurrences(start, end)
                                             for e in events]) if events else []
     return render_to_response(template_name, locals(),

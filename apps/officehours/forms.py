@@ -21,9 +21,8 @@ class EventForm(SpanForm):
 
     class Meta:
         model = Event
-        fields = ('start', 'end', 'title', 'description',
-                  'repeats', 'end_recurring_period', 'repeats_on',)
-        #exclude = ('creator', 'created_on', 'calendar', 'rule',)
+        fields = ('start', 'end', 'repeats', 'end_recurring_period',
+                  'repeats_on',)
 
     def __init__(self, hour24=False, *args, **kwargs):
         super(EventForm, self).__init__(*args, **kwargs)

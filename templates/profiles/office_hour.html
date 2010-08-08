@@ -1,3 +1,8 @@
-<li>{{ office_hour }}</li>
-poop poop poop
+<li>
+  {{ office_hour.event.creator }}
+  skype: {{ office_hour.event.creator.get_profile.skype }}
+  starts: {{ office_hour.start }}
+  ends: {{ office_hour.end }}
+</li>
+
 
