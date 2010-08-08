@@ -1,11 +1,24 @@
 {% extends "base.html" %}
+{% block javascript %}
+    {{block.super}}
+    <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+{% endblock javascript %}
+{% block extra_head %}
+<style>
+  .skype { position: absolute; }
+</style>
+{% endblock %}
 
 {% block content %}
 <div class="pretty">
   {% if display_full_profile %}
     <h1>{{ user.username }}</h1>
     {% with user.get_profile as profile %}
-      <p><label>skype:</label> {{ profile.skype }}</p>
+      <p><label>skype:</label> {{ profile.skype }}
+      {% if profile.skype %}
+<a class="skype" href="skype:{{ profile.skype }}?call"><img src="http://mystatus.skype.com/bigclassic/{{ profile.skype }}" style="border: none;" width="182" height="44" alt="My status" /></a>
+      {% endif %}
+      </p>
       <p><label>aim:</label> {{ profile.aim }}</p>
       <p><label>gchat:</label> {{ profile.gchat }}</p>
       <p><label>phone:</label> {{ profile.phone }}</p>
