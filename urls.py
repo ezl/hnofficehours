@@ -16,14 +16,13 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'views.site_index', name='index'),
     url(r'^officehours/', include('officehours.urls')),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     url(r'logout/$', 'django.contrib.auth.views.logout', kwargs={'next_page': '/'}, name='logout'),
     url(r'^register/$', 'registration.views.register', name='register'),
     url(r'^register/finish/$', 'registration.views.set_password', name='set_password'), 
     url(r'^profile/', include('profiles.urls')),
-    url(r'^$', 'django.views.generic.simple.direct_to_template',
-        {'template':'index.html'}, name='index'),
     (r'^proposal/$', 'django.views.generic.simple.direct_to_template', {'template': 'originalproposal.html'}),
 )
 

@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>Blurb goes here</div>
+<div>
+<p>This page will eventually contain a list of currently available office hours</p>
+<p>if authenticated, should have a link to create office hours</p>
+</div>
+</div>
 <h1>Designers &mdash; Links to pages to look at:</h1>
 <ul>
 <li><a href="{% url login %}">login</a></li>
 <li><a href="{% url register %}">signup</a></li>
+<li><a href="{% url list_profiles %}">show all registered users</a></li>
 <li><a href="{% url profile %}username">User Profile</a></li>
 <li><a href="{% url set_password %}">Set Password</a></li>
 <li><a href="/officehours/calendar/">Calendar</a></li>
 </ul>
 Also see <a href="http://dev.sympodial.com/static/images/hno/Proof5.png">Proof5</a> by bmelton.
+<br />
+<br />
+<br />
 {% endblock %}
