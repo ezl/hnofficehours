@@ -20,7 +20,7 @@
   {% block extra_head %}{% endblock %}
 </head>
 <body>
-  <div class="container">
+  <div id="top">
     {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -28,12 +28,19 @@
       {% endfor %}
     </ul>
     {% endif %}
+  </div>
+  <div class="container">
     <div id="header">
+      <div id="logo">
+        HN Office Hours
+      </div>
+      <div id="nav">
       {% if request.user.is_authenticated %}
         Logged in as <a href="{% url profile %}">{{ request.user.username }}</a>. <a href="{% url logout %}">logout</a>
       {% else %}
         <a href="{% url login %}">login</a> or <a href="{% url register %}">signup</a>
       {% endif %}
+      </div>
     </div>
     {% block content %} {% endblock %}
   </div>
