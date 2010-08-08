@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from datetime import datetime, timedelta
