@@ -12,7 +12,14 @@
 {% block content %}
 <div class="pretty">
   {% if display_full_profile %}
-    <h1>{{ user.username }}</h1>
+    <h1>
+      {{ user.username }}
+      {% if user.get_profile.is_available %}
+        (Currently available)
+      {% else %}
+        (Not available)
+      {% endif %}
+    </h1>
     {% with user.get_profile as profile %}
       <p><label>skype:</label> {{ profile.skype }}
       {% if profile.skype %}
