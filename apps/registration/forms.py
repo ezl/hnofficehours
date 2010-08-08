@@ -3,14 +3,18 @@ from django import forms
 from django.conf import settings
 from retrieve_hn_user_data import retrieve_hn_user_data
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import SetPasswordForm
 
+
+class SetPasswordForm(SetPasswordForm):
+    new_password1 = forms.CharField(label="New password", widget=forms.PasswordInput)
+    new_password2 = forms.CharField(label="Confirm password", widget=forms.PasswordInput)
 
 class RegistrationForm(forms.Form):
     hn_username = forms.CharField()
 
-    def clean(self):
-      if self.is_valid():
-	hn_username = self.cleaned_data['hn_username']
+    def clean_hn_username(self):
+        hn_username = self.cleaned_data['hn_username']
         hnoh_profile =  settings.USER_PROFILE_URL % hn_username
         try:
             user_data = retrieve_hn_user_data(hn_username)
@@ -22,4 +26,4 @@ class RegistrationForm(forms.Form):
         if User.objects.filter(username=hn_username).count() > 0:
             errormsg = 'User "%s" already has an account' % hn_username
             raise forms.ValidationError(errormsg)
-        return self.cleaned_data
+        return hn_username

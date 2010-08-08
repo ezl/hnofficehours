@@ -23,6 +23,8 @@ urlpatterns = patterns('',
     url(r'^register/$', 'registration.views.register', name='register'),
     url(r'^register/finish/$', 'registration.views.set_password', name='set_password'),	
     url(r'^profile/', include('profiles.urls')),
+    url(r'^beta/$', 'django.views.generic.simple.direct_to_template',
+        {'template':'index.html'}, name='index'),
 )
 
 if settings.DEBUG:

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>Blurb goes here</div>
+<h1>Designers &mdash; Links to pages to look at:</h1>
+<ul>
+<li><a href="{% url login %}">login</a></li>
+<li><a href="{% url register %}">signup</a></li>
+<li><a href="{% url profile %}username">User Profile</a></li>
+<li><a href="{% url set_password %}">Set Password</a></li>
+<li><a href="/officehours/calendar/">Calendar</a></li>
+</ul>
+Also see <a href="http://dev.sympodial.com/static/images/hno/Proof5.png">Proof5</a> by bmelton.
+{% endblock %}

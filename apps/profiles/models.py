@@ -18,6 +18,12 @@ class Profile(models.Model):
     def __unicode__(self):
         return unicode(self.user)
 
+def create_profile_object(sender, instance, created, **kwargs):
+    if not instance or not created:
+        return
+    Profile.objects.create(user=instance)
+models.signals.post_save.connect(create_profile_object, sender=User)
+
 class Skill(models.Model):
     name = models.CharField(max_length=50)
     def __unicode__(self):

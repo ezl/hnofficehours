@@ -54,10 +54,10 @@ url(r'^calendar/(?P<calendar_slug>[-\w]+)/$',
 
 #Event Urls
 url(r'^event/create/(?P<calendar_slug>[-\w]+)/$',
-    'schedule.views.create_or_edit_event',
+    'officehours.views.create_or_edit_event',
     name='calendar_create_event'),
 url(r'^event/edit/(?P<calendar_slug>[-\w]+)/(?P<event_id>\d+)/$',
-    'schedule.views.create_or_edit_event',
+    'officehours.views.create_or_edit_event',
     name='edit_event'),
 url(r'^event/(?P<event_id>\d+)/$',
     'schedule.views.event',

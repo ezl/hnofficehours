@@ -3,56 +3,33 @@
   text: #828282
   lt gray : #f6f6ef
 */
-/* start stolen block of CSS from HN */
 body  { font-family:Verdana; font-size:10pt; color:#828282; }
-td    { font-family:Verdana; font-size:10pt; color:#828282; }
 
-.admin td   { font-family:Verdana; font-size:8.5pt; color:#000000; }
-.subtext td { font-family:Verdana; font-size:  7pt; color:#828282; }
+input    { font-size:10pt; color:#000000; }
 
-input    { font-family:Courier; font-size:10pt; color:#000000; }
-input[type=\"submit\"] { font-family:Verdana; }
-textarea { font-family:Courier; font-size:10pt; color:#000000; }
-
-a:link    { color:#000000; text-decoration:none; }
-a:visited { color:#828282; text-decoration:none; }
-
-.default { font-family:Verdana; font-size: 10pt; color:#828282; }
-.admin   { font-family:Verdana; font-size:8.5pt; color:#000000; }
-.title   { font-family:Verdana; font-size: 10pt; color:#828282; }
-.adtitle { font-family:Verdana; font-size:  9pt; color:#828282; }
-.subtext { font-family:Verdana; font-size:  7pt; color:#828282; }
-.yclinks { font-family:Verdana; font-size:  8pt; color:#828282; }
-.pagetop { font-family:Verdana; font-size: 10pt; color:#222222; }
-.comhead { font-family:Verdana; font-size:  8pt; color:#828282; }
-.comment { font-family:Verdana; font-size:  9pt; }
-.dead    { font-family:Verdana; font-size:  9pt; color:#dddddd; }
-
-.comment a:link, .comment a:visited { text-decoration:underline;}
-.dead a:link, .dead a:visited { color:#dddddd; }
-.pagetop a:visited { color:#000000;}
-.topsel a:link, .topsel a:visited { color:#ffffff; }
-
-.subtext a:link, .subtext a:visited { color:#828282; }
-.subtext a:hover { text-decoration:underline; }
-
-.comhead a:link, .subtext a:visited { color:#828282; }
-.comhead a:hover { text-decoration:underline; }
-
-.default p { margin-top: 8px; margin-bottom: 0px; }
-
-.pagebreak {page-break-before:always}
-
-pre { overflow: auto; padding: 2px; max-width:600px; }
-pre:hover {overflow:auto}
-/*  end stolen block */
+a  { color:#FF6600; text-decoration:none; }
+a:hover { border-bottom:2px solid #f60;  }
 
 /* begin our stuff */
-header,#header { background:#FF6600; color:black; text-align:right; }
-.container { background:#f6f6ef; margin:1em auto; width:960px; }
+/* base.html */
+#top > .messages { background:#FFB; color:#222; border-bottom:1px solid #DDA; padding:3px; }
+
+.container { background:#f6f6ef; margin:1em auto; min-height:400px; width:960px; }
+
+header,#header { border-bottom:4px solid #FF6600; color:black; position:relative; }
+#logo { background:url(../favicon.gif) no-repeat scroll 0 50% transparent; padding-left: 20px; margin-left: 6px; font-family:Verdana; font-size:22px; }
+#logo a { color:black; }
+#nav { position:absolute; right:0; top:0; }
 
 .container > p { margin:0 1em; }
 
 /* forms */
-form > p { margin:0 1em; }
-form label { color:black; }
+.pretty { background-image:-moz-linear-gradient(top, #EDEDDD, #f6f6ef); background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #EDEDDD),color-stop(1, #f6f6ef)); filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef'); -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef')"; margin:1em auto; padding:0 10px; width:560px; }
+.pretty h1 { font-size:20px; }
+.pretty > p { height:30px; padding:4px; }
+.pretty label { color:black; display:inline-block; line-height:30px; white-space:nowrap; width:130px; }
+.pretty input[type="text"],.pretty input[type=password] { height:28px; width:388px; }
+.pretty input[type="submit"] { background:none repeat scroll 0 0 #999999; border:0 none; color:white; cursor:pointer; float:right; font-weight:bold; margin:4px; padding:5px 8px; }
+.pretty input[type="submit"]:hover { border:4px solid #FF6600; color:#FF6600; margin:0; }
+form > p { margin:0 10px; }
+form .errorlist { color:#C00; font-size:11px; margin-left:140px; }
