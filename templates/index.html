@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div>Blurb goes here</div>
+<h1>Designers &mdash; Links to pages to look at:</h1>
+<ul>
+<li><a href="{% url login %}">login</a></li>
+<li><a href="{% url register %}">signup</a></li>
+<li><a href="{% url profile %}username">User Profile</a></li>
+<a href="/officehours/calendar/">Calendar</a>
+</ul>
 {% endblock %}

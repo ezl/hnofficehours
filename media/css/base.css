@@ -55,6 +55,7 @@ pre:hover {overflow:auto}
 
 header,#header { border-bottom:4px solid #FF6600; color:black; position:relative; }
 #logo { background:url(../favicon.gif) no-repeat scroll 0 50% transparent; padding-left: 20px; margin-left: 6px; font-family:Verdana; font-size:22px; }
+#logo a { color:black; }
 #nav { position:absolute; right:0; top:0; }
 
 .container > p { margin:0 1em; }
