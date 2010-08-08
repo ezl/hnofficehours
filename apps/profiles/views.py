@@ -59,7 +59,7 @@ def profile(request):
     user = request.user
     profile = user.profile
     if request.method == "POST":
-        tag_list = request.POST.get('skills_text').strip(',').split(' ')
+        tag_list = request.POST.get('skills_text').split(',')
         for tag in tag_list:
             if tag and tag != '':
                 skill, created = Skill.objects.get_or_create(name=tag)
