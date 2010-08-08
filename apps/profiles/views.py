@@ -77,6 +77,7 @@ def profile(request, template_name="profiles/skills_test.html"):
             for skill in skills_list:
                 profile.skills.add(skill)
         profile.save()
+        messages.success(request, 'Skills updated.')
     if request.method == "POST":
         origin = request.POST.get('origin')
         if origin == "profile":
