@@ -37,8 +37,8 @@ header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5p
 form .pretty > p.help { margin-left:140px; }
 .pretty label { color:black; display:inline-block; line-height:30px; white-space:nowrap; width:130px; }
 .pretty input[type="text"],.pretty input[type=password] { height:28px; width:388px; }
-.pretty input[type="submit"] { background:none repeat scroll 0 0 #999999; border:0 none; color:white; cursor:pointer; float:right; font-weight:bold; margin:4px; padding:5px 8px; }
-.pretty input[type="submit"]:hover { border:4px solid #FF6600; color:#FFee00; margin:0; }
+.pretty input[type="button"],.pretty input[type="submit"] { background:none repeat scroll 0 0 #999999; border:0 none; color:white; cursor:pointer; float:right; font-weight:bold; margin:4px; padding:5px 8px; }
+.pretty input[type="button"]:hover,.pretty input[type="submit"]:hover { border:4px solid #FF6600; color:#FFee00; margin:0; }
 form > p { margin:0 10px; }
 form .errorlist { color:#C00; font-size:11px; margin-left:140px; }
 

@@ -268,7 +268,7 @@ div.time-picker li.selected {
   padding-right:5px;
 }
 
-body, td {font-family:sans-serif;}
+/*body, td {font-family:sans-serif;}*/
 
 .error {
   border:1px solid red;
