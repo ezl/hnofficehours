@@ -123,7 +123,7 @@ LOGIN_REDIRECT_URL = '/'
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 
 AJAX_LOOKUP_CHANNELS = {
-    'profile_skills' : dict(model='profiles.Profile',search_field='skills'),
+    'profile_skills' : dict(model='profiles.Skill', search_field='name'),
     # specifying the model Profile in the profiles app, and searching against the 'skills' field
 }
 

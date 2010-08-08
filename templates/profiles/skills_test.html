@@ -1,11 +1,58 @@
 {% extends "base.html" %}
 
+{% block css %}
+    {{block.super}}
+    <link type="text/css" href="/site_media/jqac/jquery.autocomplete.css"/>
+    <style>
+        a.ajax_delete{
+            color: black;
+            font-size: 16px;
+        }        
+        a.ajax_delete:hover{
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block javascript %}
+    {{block.super}}
+    <script type="text/javascript" src="/site_media/jqac/jquery.autocomplete.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    $('a.ajax_delete').click(function(){
+        $.ajax({
+          url: "/profile/{{profile.id}}/skill/" + this.id +"/remove/",
+          success: function(data) {
+            alert(data);
+          }
+        });
+    });
+});
+</script>
+{% endblock javascript %}
+
 {% block content %}
 
 <form method="POST" action="">{% csrf_token %}
-    profile_form Test
+    Your Profile
     {{profile_form.as_p}}
-    <input type="submit"
+    <input type="submit" value="Add" />
 </form>
 
+<div class="container">
+    Your skills:
+    <br>
+    <ul>
+        {% for skill in skills %}
+            <li>
+                <a id="{{skill.id}}" class="ajax_delete" onclick="">
+                    &#10799;           
+                </a>
+                &nbsp;
+                {{skill}}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock content %}
