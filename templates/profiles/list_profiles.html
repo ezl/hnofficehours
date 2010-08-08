@@ -3,8 +3,10 @@
 {% block content %}
 <div>
 <h1>Current users</h1>
+<ul>
 {% for user in users %}
-  <a href="{% url view_profile username=user.username %}">{{ user.username }}</a>
+  <li><a href="{% url view_profile username=user.username %}">{{ user.username }}</a></li>
 {% endfor%}
+</ul>
 </div>
 {% endblock content %}
