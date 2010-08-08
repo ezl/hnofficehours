@@ -1,4 +1,8 @@
 import datetime
+from datetime import datetime, timedelta
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
@@ -6,7 +10,7 @@ from django.template import RequestContext
 
 from officehours.forms import EventForm
 from schedule.utils import check_event_permissions
-from schedule.models import Calendar, Rule
+from schedule.models import Calendar, Rule, Event
 from schedule.utils import coerce_date_dict
 from schedule.views import get_next_url
 
@@ -101,3 +105,15 @@ def create_or_edit_event(request, calendar_slug, event_id=None, next=None,
         "next":next
     }, context_instance=RequestContext(request))
 
+
+@login_required
+def new_event_now(request, calendar_slug, duration=30):
+    start = datetime.now()
+    end = start + timedelta(minutes=60-start.minute)
+    calendar = Calendar.objects.get(name=getattr(settings, 'GLOBAL_CALENDAR_SLUG', 'cal'))
+    Event.objects.create(start=start, end=end, title=request.user.username,
+                         creator=request.user, calendar=calendar)
+    end_time = end.strftime('%I %p')
+    end_time = end_time[1:] if end_time[0] == '0' else end_time
+    messages.success(request, 'You are now marked as available until %s.' % end_time)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

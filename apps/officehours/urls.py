@@ -102,6 +102,11 @@ url(r'^occurrence/edit/(?P<event_id>\d+)/(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d
     'schedule.views.edit_occurrence', 
     name="edit_occurrence_by_date"),
     
+url(r'^available_now/$',
+    'officehours.views.new_event_now',
+    kwargs={'calendar_slug': global_calendar_slug },
+    name='available_now'),
+
 
 #feed urls 
 url(r'^feed/calendar/(.*)/$',
