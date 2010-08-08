@@ -58,7 +58,12 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
 def profile(request, template_name="profiles/skills_test.html"):
     user = request.user
     profile = user.profile
-    if request.method == "POST":
+    def update_profile():
+        pass
+        # profile_form = ProfileForm(request.POST)
+        # if profile_form.is_valid():
+        #     profile_form.save()
+    def update_skills():
         tag_list = request.POST.get('skills_text').split(',')
         for tag in tag_list:
             if tag and tag != '':
@@ -70,6 +75,12 @@ def profile(request, template_name="profiles/skills_test.html"):
             for skill in skills_list:
                 profile.skills.add(skill)
         profile.save()
+    if request.method == "POST":
+        origin = request.POST.get('origin')
+        if origin == "profile":
+            update_profile()
+        else: #origin == "skill":
+            update_skills()
     profile_form = ProfileForm()
     skill_form = ProfileSkillsForm()
     skills = profile.skills.all()

@@ -47,11 +47,16 @@ $(function(){
 
 <h1>Your Profile</h1>
 
-{{profile_form.as_p}}
+<form method="POST" action="">{% csrf_token %}
+    <input type="hidden" name="origin" value="profile" />
+    {{profile_form.as_p}}
+    <input type="submit" value="Update profile" />
+</form>
 
 <br><br><br>
 
 <form method="POST" action="">{% csrf_token %}
+    <input type="hidden" name="origin" value="skill" />
     {{skill_form.as_p}}
     <input type="submit" value="Add" />
 </form>
