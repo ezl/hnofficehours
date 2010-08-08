@@ -2,9 +2,12 @@
 
 {% block content %}
   <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <p>Paste <span id="profileURL">{{ profile_url }}</span> into your hacker news profile, replacing username with your hacker news username.</p>
-    <p><input type="submit" value="register" /></p>
+    <div class="pretty">
+      <h1>Sign Up</h1>
+      {{ form.as_p }}
+      <p>Paste <input id="profileURL" readonly value="{{ profile_url }}"> into your <a id="hnProfileURL" target="_blank" href="http://news.ycombinator.com">hacker news profile</a>, replacing username with your hacker news username.</p>
+      <p><input type="submit" value="register" /></p>
+    </div>
   </form>
 {% endblock %}
 
@@ -12,13 +15,18 @@
 <script>
 $(function(){
   var el = $('#profileURL');
-  var url = el.text();
+  var url = el.val();
   var baseUrl = url.substr(0,url.lastIndexOf('/',url.length-2) + 1);
 
   $('#id_hn_username').keyup(function(){
-    el.text(baseUrl + this.value + '/');
+    el.val(baseUrl + this.value + '/');
+    $('#hnProfileURL').attr('href','http://news.ycombinator.com/user?id='+this.value);
   });
+  el.click(function(){ this.select() });
 });
 
 </script>
+<style type="text/css">
+  #profileURL { color:gray; text-align:center; width: 333px; }
+</style>
 {% endblock %}
