@@ -7,7 +7,7 @@
   <p class="big">Welcome, {{ request.user.username }}</p>
   <p>list more stuff depending on the context. display upcoming office hours.</p>
   <ul>
-    <li><a href="{% url schedule %}">Add office hours</a></li>
+    <li><a href="{% url calendar_create_event %}">Add office hours</a></li>
   </ul>
       {% else %}
   <p class="big">Get help from someone who knows what they're talking about.</p>
