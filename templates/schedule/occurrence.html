@@ -1,13 +1,13 @@
 {% extends "schedule/base.html" %}
 {% load i18n %}
-{% load scheduletags %}
+{% load scheduletags %} {% load officehourstags %}
 
 {% block body %}
 <div class="navigation">
-  <a href="{% url day_calendar occurrence.event.calendar.slug %}{% querystring_for_date occurrence.start 3 %}">
+  <a href="{% url day_calendar  %}{% querystring_for_date occurrence.start 3 %}">
     Day
   </a>
-  <a href="{% url month_calendar occurrence.event.calendar.slug %}{% querystring_for_date occurrence.start 2 %}">
+  <a href="{% url month_calendar  %}{% querystring_for_date occurrence.start 2 %}">
     Month
   </a>
 </div>

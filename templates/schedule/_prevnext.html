@@ -1,10 +1,10 @@
-{% load scheduletags %}
+{% load scheduletags %} {% load officehourstags %}
 <div class="prevnext">
-    <a href="{% prev_url target slug period %}">
+    <a href="{% prev_url target period %}">
       <img align="top" border="0" src="/site_media/schedule/img/left_mod.png"/>
     </a> 
     &nbsp; <b>{{period_name}}</b> &nbsp; 
-    <a href="{% next_url target slug period %}">
+    <a href="{% next_url target period %}">
       <img align="top" border="0" src="/site_media/schedule/img/right_mod.png"/>
     </a>
 </div>

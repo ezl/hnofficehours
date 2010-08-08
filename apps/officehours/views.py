@@ -73,6 +73,7 @@ def create_or_edit_event(request, calendar_slug, event_id=None, next=None,
         if instance is None:
             event.creator = request.user
             event.calendar = calendar
+            event.title = request.user.username
 
         (repeats, repeats_on, repeats_until) = [form.cleaned_data.get(x) for x
                                                 in ('repeats', 'repeats_on',
