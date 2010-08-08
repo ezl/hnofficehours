@@ -51,7 +51,7 @@ def set_password(request, template_name='registration/set_password.html'):
         if form.is_valid():
             form.save()
             messages.success(request, 'Password set.')
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('index'))
     else:
         form = SetPasswordForm(user=request.user)
     return render_to_response(template_name, locals(),
