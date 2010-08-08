@@ -28,6 +28,15 @@
   {% endif %}
   {#  skills #}
   {# times #}
+  <h2>Holds office hours for:</h2>
+    <ul>
+    {% for skill in user.get_profile.skills.all %}
+      <li>{{ skill }}</li>
+    {% empty %}
+      <li>{{ user.username }} has not listed his skills</li>
+    {% endfor %}
+    </ul>
+  <br />
   <h2>Available office hours:</h2>
   <ul>
   {% for office_hour in office_hours %}

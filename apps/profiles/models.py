@@ -12,6 +12,7 @@ class Profile(models.Model):
     aim = models.CharField("AIM", max_length=20, null=True, blank=True)
     gchat = models.CharField("Google Chat", max_length=20, null=True, blank=True)
     phone = models.CharField("Phone number", max_length=20, null=True, blank=True)
+    is_available = models.BooleanField("Available now")
     timezone = TimeZoneField()
 
     skills = models.ManyToManyField('Skill', blank=True)
