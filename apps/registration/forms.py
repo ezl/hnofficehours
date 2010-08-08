@@ -8,8 +8,7 @@ from django.contrib.auth.models import User
 class RegistrationForm(forms.Form):
     hn_username = forms.CharField()
 
-    def clean(self):
-      if self.is_valid():
+    def clean_hn_username(self):
 	hn_username = self.cleaned_data['hn_username']
         hnoh_profile =  settings.USER_PROFILE_URL % hn_username
         try:
