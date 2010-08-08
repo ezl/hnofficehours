@@ -8,7 +8,7 @@ from ajax_select.fields import AutoCompleteSelectMultipleField, AutoCompleteSele
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('skype', 'aim', 'gchat', 'phone', 'timezone')
+        fields = ('skype', 'aim', 'gchat', 'phone', 'is_available', 'timezone')
 
 class ProfileSkillsForm(forms.Form):
     # declare a field and specify the named channel that it uses
