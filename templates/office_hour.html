@@ -1,5 +1,7 @@
 <div class="officehour">
-<em>{{ user.username }}</em>
-{{ user.get_profile.skills.all|join:", " }}
+
+<h3><em><a href="{% url view_profile user.username %}">{{ user.username }}</a></em></h3>
+<p>skills: {{ user.get_profile.skills.all|join:", " }}</p>
+<p>availability status:{% if user.get_profile.is_available %}GREEN{% else %}RED{% endif %}</p>
 <hr />
 </div>
