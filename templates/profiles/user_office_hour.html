@@ -7,8 +7,8 @@
     starts: {{ office_hour.start|localtime:request.user.get_profile.timezone }}
     ends: {{ office_hour.end|localtime:request.user.get_profile.timezone }}
   {% else %}
-    starts: {{ office_hour.start }}
-    ends: {{ office_hour.end }}
-    (All times are US Central Time)
+    starts: {{ office_hour.start }} U.S. CST
+    ends: {{ office_hour.end }} U.S. CST
   {% endif %}
+<hr />
 </li>

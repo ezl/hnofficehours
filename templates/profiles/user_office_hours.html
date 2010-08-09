@@ -1,5 +1,8 @@
 <div>
   <h2>Available office hours:</h2>
+  {% if not request.user.is_authenticated %}
+  <h3>[Times are displayed as US Central Time for unauthenticated users. <a href="{% url login %}">Log in</a> to view in your time zone.]</h3>
+  {% endif %}
   <ul>
   {% for office_hour in office_hours %}
     {% include "profiles/user_office_hour.html" %}
