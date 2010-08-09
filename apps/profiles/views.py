@@ -34,6 +34,26 @@ def ajax_view(request, profile_id, skill_id, verb):
     else:
         return HttpResponse("verb unrecognized")
 
+def ajax_toggle_availability(request):
+    datadict = dict()
+    datadict['status'] = "failure"
+    if request.user.is_authenticated():
+        try:
+            user = request.user
+            profile = user.get_profile()
+            profile.is_available = not profile.is_available
+            profile.save()
+        except:
+            pass
+        else:
+            datadict['status'] = "success"
+    datadict['availability'] = profile.is_available
+    return HttpResponse(simplejson.dumps(datadict))
+
+
+
+
+
 def _can_view_full_profile(user):
     # for now just check if user is logged in, later there may be karma and/or
     # other requirements.

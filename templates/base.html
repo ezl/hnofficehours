@@ -36,6 +36,11 @@
       </div>
       <div id="nav">
           {% if request.user.is_authenticated %}
+            {% if user.get_profile.is_available %}
+              <a href="">Available</a>
+            {% else %}
+              <a href="">Unavailable</a>
+            {% endif %}
             Logged in as <a href="{% url view_profile username=user.username %}">{{ request.user.username }}</a>
             <a class="btn" href="{% url profile %}">User CP</a>
             <a class="btn" href="{% url logout %}">logout</a>
