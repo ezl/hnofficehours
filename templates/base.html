@@ -55,6 +55,11 @@
     </div>
     {% block sidebar %} {% endblock %}
     {% block content %} {% endblock %}
+    {% block footer %}
+    <div class="footer">
+      List orphaned links here: <a href="{% url list_profiles %}">All Users</a>
+    </div>
+    {% endblock %}
   </div>
 </body>
 </html>
