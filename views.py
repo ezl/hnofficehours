@@ -10,16 +10,21 @@ from schedule.periods import Period
 
 
 def site_index(request, template_name='index.html'):
+    # most future office hours to show
+    MAX_FUTURE_OFFICE_HOURS = 30
+    # furthest into the future to display office hours
+    MAX_FUTURE_DAYS = 30
     users_available_now = User.objects.filter(profile__is_available=True)
     events = Event.objects.all()
     now = Period(events=events, start=datetime.now(),
-                                end=datetime.now() + timedelta(minutes=1))
+                 end=datetime.now() + timedelta(minutes=1))
     occurences = now.get_occurrences()
     users_holding_office_hours_now = map(lambda x: x.event.creator, occurences)
     users = set(list(users_available_now) + users_holding_office_hours_now)
     future = Period(events=events, start=datetime.now(),
-                                   end=datetime.now() + timedelta(days=30))
+                    end=datetime.now() + timedelta(days=MAX_FUTURE_DAYS))
     upcoming_office_hours = future.get_occurrences()
+    upcoming_office_hours = upcoming_office_hours[:MAX_FUTURE_OFFICE_HOURS]
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))
 
