@@ -11,25 +11,22 @@
         This week
       </a>
     </div>
-
-<div id="week">
-  {% for day in periods.week.get_days %}
-    <div class="weekday weekday{{forloop.counter}}">
-      {# <div class="weekdayheader"> #}
-      {#   <a href="{% url day_calendar %}{% querystring_for_date day.start %}"> #}
-      {#     {{day.start|date:"l, d"}} #}
-      {#   </a> #}
-      {# </div> #}
-      <div class="weekdaytable">
-      {% if forloop.first %}
-          {% daily_table day 230 80 600 9 21 %}
-      {% else %}
-          {% daily_table day 150 15 600 9 21 %}
-      {% endif %}
-      </div>
+    <div id="week">
+      {% for day in periods.week.get_days %}
+        <div class="weekday weekday{{forloop.counter}}">
+          <div class="weekdayheader">
+              {{day.start|date:"l, d"}}
+          </div>
+          <div class="weekdaytable">
+          {% if forloop.first %}
+              {% daily_table day 230 80 600 9 21 %}
+          {% else %}
+              {% daily_table day 150 15 600 9 21 %}
+          {% endif %}
+          </div>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-</div>
 </div>
 {% endblock %}
 

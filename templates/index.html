@@ -21,113 +21,76 @@
   </div>
 </div>
 <div class="shadow-down"></div>
-<div style="float:right; width:50%;">
-<h2>Upcoming Office Hours</h2>
-{% for office_hour in upcoming_office_hours %}
-  {% include "upcoming_office_hour.html" %}
-{% endfor %}
-</div>
 <div style="display: none; border:2px dashed red; width:50%; background:paleGoldenRod;">
-<div>
-<p>This page will eventually contain a list of currently available office hours</p>
-<p>if authenticated, should have a link to create office hours</p>
+  <div>
+  <p>This page will eventually contain a list of currently available office hours</p>
+  <p>if authenticated, should have a link to create office hours</p>
+  </div>
+  <h1>Designers &mdash; Links to pages to look at:</h1>
+  <ul>
+  <li><a href="{% url login %}">login</a></li>
+  <li><a href="{% url register %}">signup</a></li>
+  <li><a href="{% url list_profiles %}">show all registered users</a></li>
+  <li><a href="{% url profile %}username">Sample User Profile URL (won't work, need to modify it, see below)</a></li>
+  <li><a href="{% url set_password %}">Set Password</a></li>
+  <li><a href="/officehours/calendar/">Calendar</a></li>
+  </ul>
+  <p>Also see <a href="http://dev.sympodial.com/static/images/hno/Proof5.png">Proof5</a> by bmelton
+  and our original <a href="proposal/">proposal</a></p>
+  <p>So you've decided to skin this site. Here are some additional steps you need to try.
+  Login as a valid user. Either find a working username in the server you're using or sign up
+  for the site yourself. There are some additional pages you'll want to check.
+  Start by going into your User CP and clicking around.</p>
 </div>
-<h1>Designers &mdash; Links to pages to look at:</h1>
-<ul>
-<li><a href="{% url login %}">login</a></li>
-<li><a href="{% url register %}">signup</a></li>
-<li><a href="{% url list_profiles %}">show all registered users</a></li>
-<li><a href="{% url profile %}username">Sample User Profile URL (won't work, need to modify it, see below)</a></li>
-<li><a href="{% url set_password %}">Set Password</a></li>
-<li><a href="/officehours/calendar/">Calendar</a></li>
-</ul>
-<p>Also see <a href="http://dev.sympodial.com/static/images/hno/Proof5.png">Proof5</a> by bmelton
-and our original <a href="proposal/">proposal</a></p>
-<p>So you've decided to skin this site. Here are some additional steps you need to try.
-Login as a valid user. Either find a working username in the server you're using or sign up
-for the site yourself. There are some additional pages you'll want to check.
-Start by going into your User CP and clicking around.</p>
+<div id="now" class="list">
+  <h2>Holding Office Hours Now</h2>
+  {% for user in users %}
+    {% include "available_user.html" %}
+  {% endfor %}
+  </div>
+<div id="soon" class="list">
+  <h2>Upcoming Office Hours</h2>
+  {% for office_hour in upcoming_office_hours %}
+    {% include "upcoming_office_hour.html" %}
+  {% endfor %}
 </div>
-<div id="now">
-<h2>Available Now</h2>
-{% for user in users %}
-  {% include "available_user.html" %}
-{% endfor %}
-</div>
+<div class="clear"></div>
 {% endblock %}
 
 {% block extra_head %}
 <style type="text/css">
-#north { height:200px; position:relative; border-bottom:4px solid #FF6600; }
-#blurb { color:black; top:0; left:0; font-size: 16px; width:500px; position:absolute; padding:20px; }
-#blurb > * { margin: 10px 0; }
+#north { border-bottom:4px solid #FF6600; height:200px; position:relative; }
+#blurb { color:black; font-size:16px; left:0; padding:20px; position:absolute; top:0; width:500px; }#blurb > * { margin: 10px 0; }
 #blurb-pic { top:0; right:0; position:absolute; }
 .big { font-size: 24px; }
-#now { margin:0 20px; width:400px; }
-#now h2 { color:black; font-size: 1.5em; border-bottom: 2px solid #FF6600; padding: 5px 3px; }
-.officehour {
-  background:url({{ MEDIA_URL}}images/icons-availibility.png) no-repeat scroll 0 3px paleGreen;
-  position:relative;
-  margin: 1em 0 2em;
-}
-.status-busy { background-position: 0 -97px; background-color:#FBB998; }
-.officehour h3 { text-indent: 22px; }
+.list { float:left; margin:0 20px; width:400px; }
+.list h2 { border-bottom:2px solid #FF6600; color:black; font-size:1.5em; padding:5px 3px; }
+.officehour { border-bottom:1px dashed gray; margin:1em 0; padding-bottom:1em; position:relative; }.officehour.status-available > div { background:url({{ MEDIA_URL}}images/icons-availibility.png) no-repeat scroll 0 3px paleGreen; }
+.officehour.status-busy > div { background:url({{ MEDIA_URL}}images/icons-availibility.png) no-repeat scroll 0 -97px #FBB998; }
+#now .officehour h3 { text-indent: 22px; }
 .officehour em { font-size: 1.5em; color:black; }
-.skill li {
-
-     -moz-border-radius: 3px; /* FF1+ */
-  -webkit-border-radius: 3px; /* Saf3+, Chrome */
-          border-radius: 3px; /* Opera 10.5, IE 9 */
-display:inline-block; padding:2px 3px; color:white; background-color:darkCyan; margin:2px; font-size:0.9em;
-}
-.contactUser { position:absolute; background:white; right:0; top:-8px;}
-.contact { background:url({{ MEDIA_URL}}images/icons-contact.png) no-repeat scroll 0 0; display: inline-block; width:16px; height:16px; text-indent: -999em; }
+.skill li { background-color:darkCyan; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; color:white; display:inline-block; font-size:0.9em; margin:2px; padding:2px 3px; }
+.contactUser { background:white; position:absolute; right:0; top:-8px; }.contact { background:url({{ MEDIA_URL}}images/icons-contact.png) no-repeat scroll 0 0; display: inline-block; width:16px; height:16px; text-indent: -999em; }
 .contact:hover { border:0 none; }
 .contact.skype { background-position:0 0; }
 .contact.aim { background-position:-16px 0; }
 .contact.gchat { background-position:-32px 0; }
-.contact.phone { background:none; text-indent:0; }
-
-
-
-
-
-
-.green { color: #46B423; background-color: #46B423 !important; }
-.fuschia { color: #C465C3; background-color: #C465C3 !important; }
-.BlueViolet { color: BlueViolet; background-color: BlueViolet !important; }
-.Brown { color: Brown; background-color: Brown !important; }
-.CadetBlue { color: CadetBlue; background-color: CadetBlue !important; }
-.Chocolate { color: Chocolate; background-color: Chocolate !important; }
-.CornflowerBlue { color: CornflowerBlue; background-color: CornflowerBlue !important; }
-.Crimson { color: Crimson; background-color: Crimson !important; }
-.DarkBlue { color: DarkBlue; background-color: DarkBlue !important; }
-.DarkCyan { color: DarkCyan; background-color: DarkCyan !important; }
-.DarkGoldenRod { color: DarkGoldenRod; background-color: DarkGoldenRod !important; }
-.DarkGreen { background-color: DarkGreen; color: DarkGreen !important; }
-.DarkMagenta { background-color: DarkMagenta; color: DarkMagenta !important; }
-.DarkRed { background-color: DarkRed; color: DarkRed !important; }
-.DarkSlateBlue { background-color: DarkSlateBlue; color: DarkSlateBlue !important; }
-.DarkTurquoise { background-color: DarkTurquoise; color: DarkTurquoise !important; }
-.DarkViolet { background-color: DarkViolet; color: DarkViolet !important; }
-.DeepPink { background-color: DeepPink; color: DeepPink !important; }
+.contact.phone { background-position:-48px 0; }
 </style>
 <script type="text/javascript">
-  var colors = [ 'green','fuschia','BlueViolet','Brown','CadetBlue','Chocolate','CornflowerBlue','Crimson','DarkBlue',
+var colors = ['#46B423','#C465C3','BlueViolet','Brown','CadetBlue','Chocolate','CornflowerBlue','Crimson','DarkBlue',
   'DarkCyan','DarkGoldenRod','DarkGreen','DarkMagenta','DarkRed','DarkSlateBlue','DarkTurquoise','DarkViolet','DeepPink',];
-//colors[i % colors.length];
 var allTags = [];
 $(function(){
-  $('#now ul.skill li')
+  $('div.list ul.skill li')
     .each(function(){
       var tag = $.trim(this.innerHTML);
       if (allTags.indexOf(tag) === -1) allTags.push(tag);
     })
     .each(function(){
       var tag = $.trim(this.innerHTML);
-      $(this).addClass(colors[allTags.indexOf(tag) % colors.length]);
+      $(this).css('background-color',colors[allTags.indexOf(tag) % colors.length]);
     });
-
 });
 </script>
 {% endblock %}

@@ -1,27 +1,28 @@
 <div class="officehour{% if user.get_profile.is_available %} status-available{% else %} status-busy{% endif %}">
+  <div>
+    <h3>
+      <a href="{% url view_profile user.username %}"><em>{{ user.username }}</em></a>
+      <span>{% if user.get_profile.is_available %}AVAILABLE{% else %}BUSY{% endif %}</span>
+    </h3>
+    <ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
 
-<h3>
-  <a href="{% url view_profile user.username %}"><em>{{ user.username }}</em></a>
-  <span>{% if user.get_profile.is_available %}AVAILABLE{% else %}BUSY{% endif %}</span>
-</h3>
-<ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
-
-{% if request.user.is_authenticated %}
-  <div class="contactUser" style="border: 1px solid #888;">
-  {% with user.get_profile as u %}
-    {% if u.aim %}
-      <a class="contact aim" href="{{ u.aim }}">aimicon</a>
+    {% if request.user.is_authenticated %}
+      <div class="contactUser" style="border: 1px solid #888;">
+      {% with user.get_profile as u %}
+        {% if u.aim %}
+          <a class="contact aim" href="{{ u.aim }}">aimicon</a>
+        {% endif %}
+        {% if u.skype %}
+          <a class="contact skype" href="{{ u.skype }}">skypeicon</a>
+        {% endif %}
+        {% if u.gchat %}
+          <a class="contact gchat" href="{{ u.gchat }}">gchaticon</a>
+        {% endif %}
+        {% if u.phone %}
+          <a class="contact phone" href="{{ u.phone }}">phoneicon</a>
+        {% endif %}
+      {% endwith %}
+      </div>
     {% endif %}
-    {% if u.skype %}
-      <a class="contact skype" href="{{ u.skype }}">skypeicon</a>
-    {% endif %}
-    {% if u.gchat %}
-      <a class="contact gchat" href="{{ u.gchat }}">gchaticon</a>
-    {% endif %}
-    {% if u.phone %}
-      <a class="contact phone" href="{{ u.phone }}">phoneicon</a>
-    {% endif %}
-  {% endwith %}
   </div>
-{% endif %}
 </div>
