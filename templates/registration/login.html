@@ -3,9 +3,9 @@
 {% block content %}
   <form action="" method="post">{% csrf_token %}
     <div class="pretty">
-    <h1>Login</h1>
-    {{ form.as_p }}
-    <p><input type="submit" value="login" /></p>
+      <h1>Login</h1>
+      {{ form.as_p }}
+      <div class="footer"><input type="submit" value="login" /></div>
     </div>
   </form>
 Don't have an account? <a href="{% url register %}">Create one!</a>
