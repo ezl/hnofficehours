@@ -28,6 +28,20 @@ header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5p
 #logo a:hover { border:0 none; }  /* override */
 #nav { position:absolute; right:0; top:0; }
 
+#sidebar {
+  float:left;
+  width: 165px;
+  overflow: hidden;
+  background: #EDEDDD;
+  border-right: 1px solid #EDEDDD;
+  border-bottom: 1px solid #EDEDDD;
+  min-height: 200px;
+}
+#sidebar h2 { font-size: 1.2em; margin: 2px; }
+#sidebar ul {
+  padding-left: 1em;
+}
+
 
 /* forms */
 .pretty { clear:both; background-image:-moz-linear-gradient(top, #EDEDDD, #f6f6ef); background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #EDEDDD),color-stop(1, #f6f6ef)); filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef'); -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef')"; margin:1em auto; padding:0 10px; width:560px; }
@@ -38,8 +52,9 @@ header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5p
 form .pretty > p.help,form .pretty ul { margin-left:140px; }
 .pretty label { color:black; display:inline-block; line-height:30px; white-space:nowrap; width:130px; }
 .pretty input[type="text"],.pretty input[type=password] { height:28px; width:388px; }
-.pretty input[type="button"],.pretty input[type="submit"] { background:none repeat scroll 0 0 #999999; border:0 none; color:white; cursor:pointer; float:right; font-weight:bold; margin:4px; padding:5px 8px; }
+.pretty input[type="button"],.pretty input[type="submit"] { background:none repeat scroll 0 0 #999999; border:0 none; color:white; cursor:pointer; font-weight:bold; margin:4px; padding:5px 8px; }
 .pretty input[type="button"]:hover,.pretty input[type="submit"]:hover { border:4px solid #FF6600; color:#FFee00; margin:0; }
+.pretty .footer { text-align:right; }
 form > p { margin:0 10px; }
 form .errorlist { color:#C00; font-size:11px; margin-left:140px; }
 

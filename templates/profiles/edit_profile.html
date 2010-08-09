@@ -12,6 +12,7 @@
             color: red;
             cursor: pointer;
         }
+        #id_skills_on_deck { display:none; }
     </style>
 {% endblock %}
 
@@ -42,10 +43,10 @@ $(function(){
 {% block content %}
 <form method="POST" action="">{% csrf_token %}
     <input type="hidden" style="display:none;" name="origin" value="profile" />
-    <div class="pretty">
+    <div class="pretty" style="clear:none;">
     <h1>Update Your Profile</h1>
     {{profile_form.as_p}}
-    <input type="submit" value="Update profile" />
+    <div class="footer"><input type="submit" value="Update profile"></div>
     </div>
 </form>
 <form method="POST" action="">{% csrf_token %}
@@ -54,7 +55,7 @@ $(function(){
     <h1>Add Skills</h1>
     <p class="help">If entering multiple skills, separate skills using commas</p>
     {{skill_form.as_p}}
-    <input type="submit" value="Add" />
+    <div class="footer"><input type="submit" value="Add"></div>
     </div>
 </form>
 <div class="pretty">
@@ -70,13 +71,16 @@ $(function(){
     </ul>
 </div>
 <div class="pretty">
-  <h1>Tasks</h1>
-  <ul>
-    <li><a href="{% url calendar_create_event %}">Add office hours</a></li>
-  </ul>
-</div>
-<div class="pretty">
 {# AVAILABLE OFFICE HOURS #}
 {% include "profiles/user_office_hours.html" %}
 </div>
 {% endblock content %}
+
+{% block sidebar %}
+<div id="sidebar">
+  <h2>Your Tasks</h2>
+  <ul>
+    <li><a href="{% url calendar_create_event %}">Add office hours</a></li>
+  </ul>
+</div>
+{% endblock sidebar %}
