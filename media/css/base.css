@@ -19,14 +19,15 @@ a:hover { border-bottom:2px solid #f60;  }
 #top > .messages { background:#FFB; color:#222; border-bottom:1px solid #DDA; padding:3px; }
 
 .container { background:#f6f6ef; margin:1em auto; min-height:400px; width:960px; }
+.container > p { margin:0 1em; }
 .shadow-up { background:url(../images/bg-shadow-top.png) no-repeat scroll center bottom #f6f6ef; }
 .shadow-down { background:url(../images/bg-shadow-bottom.png) no-repeat scroll center top #f6f6ef; height: 25px; }
 header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5px; position:relative; }
 #logo { background:url(../favicon.gif) no-repeat scroll 0 50% transparent; padding-left: 20px; margin-left: 6px; font-family:Verdana; font-size:22px; }
 #logo a { color:black; }
+#logo a:hover { border:0 none; }  /* override */
 #nav { position:absolute; right:0; top:0; }
 
-.container > p { margin:0 1em; }
 
 /* forms */
 .pretty { clear:both; background-image:-moz-linear-gradient(top, #EDEDDD, #f6f6ef); background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #EDEDDD),color-stop(1, #f6f6ef)); filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef'); -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef')"; margin:1em auto; padding:0 10px; width:560px; }
@@ -34,15 +35,14 @@ header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5p
 .pretty h2 { font-size:17px; }
 .pretty > p { height:30px; padding:4px; }
 .pretty > p.help { font-size:0.8em; height:auto; padding:0; }
-form .pretty > p.help { margin-left:140px; }
+form .pretty > p.help,form .pretty ul { margin-left:140px; }
 .pretty label { color:black; display:inline-block; line-height:30px; white-space:nowrap; width:130px; }
 .pretty input[type="text"],.pretty input[type=password] { height:28px; width:388px; }
 .pretty input[type="button"],.pretty input[type="submit"] { background:none repeat scroll 0 0 #999999; border:0 none; color:white; cursor:pointer; float:right; font-weight:bold; margin:4px; padding:5px 8px; }
 .pretty input[type="button"]:hover,.pretty input[type="submit"]:hover { border:4px solid #FF6600; color:#FFee00; margin:0; }
 form > p { margin:0 10px; }
 form .errorlist { color:#C00; font-size:11px; margin-left:140px; }
-form .pretty ul {
-  margin-left: 140px;
-}
+
+/* other stuff */
 a.btn { color:white; background:#FF6600; font-size:0.8em; font-weight:bold; padding: 3px; }
 a.btn:hover { color:navy; border-bottom:0 none; }
