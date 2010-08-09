@@ -34,12 +34,3 @@
 </div>
 {% endblock %}
 
-{% block schedule_subnav %}
-  <div class="pretty">
-    <h2>Subview:</h2>
-    <ul>
-        <li><a href="{% url month_calendar %}{% querystring_for_date periods.week.start 2 %}">Month</a></li>
-        <li><a href="{% url year_calendar %}{% querystring_for_date periods.week.start 1%}">Year</a></li>
-    </ul>
-  </div>
-{% endblock schedule_subnav %}
