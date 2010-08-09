@@ -3,36 +3,37 @@
 
 {% block body %}
 <form action="" method="post"> {% csrf_token %}
-<table class="pretty">
-<thead><tr><td colspan="2">
-<b>{% trans "Create or change event. All fields are required." %}</b>
-</td></tr></thead>
-<tbody>
-{{ form.as_table }}
-</tbody>
-<tfoot>
-<tr><td colspan="2">
+<div class="pretty">
+<p class="help">{% trans "Create or change event. All fields are required." %}</p>
+
+
+
+<p>{{ form.start.label_tag }}{{ form.start }}</p>
+<p>{{ form.end.label_tag }}{{ form.end }}</p>
+<p class="help">{{ form.end.help_text}}</p>
+<p>{{ form.repeats.label_tag }} {{ form.repeats }}</p>
+<p>{{ form.end_recurring_period.label_tag }}{{ form.end_recurring_period }}</p>
+<p class="help">{{ form.end_recurring_period.help_text}}</p>
+<p style="float:left;">{{ form.repeats_on.label_tag }}</p>
+{{ form.repeats_on }}
+<p>
 <input type="submit" value="{% trans 'Save' %}">
 <input type="hidden" name="next" value="{{next|default:""}}">
-</td></tr>
-</tfoot>
-</table>
+</p>
+</div>
 </form>
 {% endblock %}
 
 {% block extra_head %}
     {{ block.super }}
+    {# TODO WHERE DOES THIS BLOCK GO? event_form_base.html ? base.html ? #}
 <style>
 /* hacky css */
-  .pretty th { padding-left:10px; }
-  .pretty input[type="text"] { width: 100px; }
   .disable { opacity: 0.3; }
-  #id_title { width: 380px; }
-  #id_description { width: 380px; height: 100px; }
 </style>
 <script type="text/javascript">
 function doStuff(){
-  $('form tbody > tr:gt(2)').toggleClass('disable',function() { return !$('#id_repeats').is(':checked'); });
+  $('form div.pretty > *:gt(3):not(:last)').toggleClass('disable',function() { return !$('#id_repeats').is(':checked'); });
 }
 $(function(){
   $('#id_repeats').click(doStuff);

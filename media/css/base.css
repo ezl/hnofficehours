@@ -41,6 +41,8 @@ form .pretty > p.help { margin-left:140px; }
 .pretty input[type="button"]:hover,.pretty input[type="submit"]:hover { border:4px solid #FF6600; color:#FFee00; margin:0; }
 form > p { margin:0 10px; }
 form .errorlist { color:#C00; font-size:11px; margin-left:140px; }
-
+form .pretty ul {
+  margin-left: 140px;
+}
 a.btn { color:white; background:#FF6600; font-size:0.8em; font-weight:bold; padding: 3px; }
 a.btn:hover { color:navy; border-bottom:0 none; }
