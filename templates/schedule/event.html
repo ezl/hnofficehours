@@ -1,7 +1,7 @@
 {% extends "schedule/base.html" %}
 {% load i18n %}
 {% load scheduletags %} {% load officehourstags %}
-
+{% load timezone_filters %}
 {% block body %}
 <div class="navigation pretty">
   <h2>View</h2>
@@ -29,12 +29,21 @@
   </thead>
   <tbody>
     <tr>
-    <td>Starts</td>
-    <td>{% blocktrans with event.start|date:_("DATETIME_FORMAT") as start_date %}{{ start_date }}{% endblocktrans %}</td>
-    </tr>
-    <tr>
-    <td>Ends</td>
-    <td>{% blocktrans with event.end|date:_("DATETIME_FORMAT") as end_date %}{{ end_date }}{% endblocktrans %}</td>
+    {% if request.user.is_authenticated %}
+      <td>Starts</td>
+      <td>{% blocktrans with event.start|localtime:request.user.get_profile.timezone|date:_("DATETIME_FORMAT") as start_date %}{{ start_date }}{% endblocktrans %}</td>
+      </tr>
+      <tr>
+      <td>Ends</td>
+      <td>{% blocktrans with event.end|localtime:request.user.get_profile.timezone|date:_("DATETIME_FORMAT") as end_date %}{{ end_date }}{% endblocktrans %}</td>
+    {% else %}
+      <td>Starts</td>
+      <td>{% blocktrans with event.start|date:_("DATETIME_FORMAT") as start_date %}{{ start_date }}{% endblocktrans %} (US Central Time)</td>
+      </tr>
+      <tr>
+      <td>Ends</td>
+      <td>{% blocktrans with event.end|date:_("DATETIME_FORMAT") as end_date %}{{ end_date }}{% endblocktrans %} (US Central Time)</td>
+    {% endif %}
     </tr>
     <tr>
     <td>Reoccurs</td>
