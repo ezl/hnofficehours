@@ -3,25 +3,25 @@
 {% load scheduletags %} {% load officehourstags %}
 {% load timezone_filters %}
 {% block body %}
-<div class="navigation pretty">
-  <h2>View</h2>
-  <ul>
-  <li><a href="{% url day_calendar %}{% querystring_for_date event.start 3 %}">
-    Day
-  </a></li>
-  <li><a href="{% url month_calendar %}{% querystring_for_date event.start 2 %}">
-    Month
-  </a></li>
-  <li><a href="{% url year_calendar %}{% querystring_for_date event.start 1%}">
-    Year
-  </a></li>
-  {% if back_url %}
-  <li><a href="{{ back_url }}">
-    <img border="0" src="{{ MEDIA_URL }}left_mod.png" alt="{% trans "Back" %}"/>
-  </a></li>
-  {% endif %}
-  </ul>
-</div>
+{# <div class="navigation pretty"> #}
+{#   <h2>View</h2> #}
+{#   <ul> #}
+{#   <li><a href="{% url day_calendar %}{% querystring_for_date event.start 3 %}"> #}
+{#     Day #}
+{#   </a></li> #}
+{#   <li><a href="{% url month_calendar %}{% querystring_for_date event.start 2 %}"> #}
+{#     Month #}
+{#   </a></li> #}
+{#   <li><a href="{% url year_calendar %}{% querystring_for_date event.start 1%}"> #}
+{#     Year #}
+{#   </a></li> #}
+{#   {% if back_url %} #}
+{#   <li><a href="{{ back_url }}"> #}
+{#     <img border="0" src="{{ MEDIA_URL }}left_mod.png" alt="{% trans "Back" %}"/> #}
+{#   </a></li> #}
+{#   {% endif %} #}
+{#   </ul> #}
+{# </div> #}
 <h2 align="center">{{event.title}}</h2>
 <table align="center" class="pretty">
   <thead>
@@ -29,21 +29,12 @@
   </thead>
   <tbody>
     <tr>
-    {% if request.user.is_authenticated %}
       <td>Starts</td>
-      <td>{% blocktrans with event.start|localtime:request.user.get_profile.timezone|date:_("DATETIME_FORMAT") as start_date %}{{ start_date }}{% endblocktrans %}</td>
+      <td>{% blocktrans with event.start|localtime:output_timezone|date:_("DATETIME_FORMAT") as start_date %}{{ start_date }}{% endblocktrans %}</td>
       </tr>
       <tr>
       <td>Ends</td>
-      <td>{% blocktrans with event.end|localtime:request.user.get_profile.timezone|date:_("DATETIME_FORMAT") as end_date %}{{ end_date }}{% endblocktrans %}</td>
-    {% else %}
-      <td>Starts</td>
-      <td>{% blocktrans with event.start|date:_("DATETIME_FORMAT") as start_date %}{{ start_date }}{% endblocktrans %} (US Central Time)</td>
-      </tr>
-      <tr>
-      <td>Ends</td>
-      <td>{% blocktrans with event.end|date:_("DATETIME_FORMAT") as end_date %}{{ end_date }}{% endblocktrans %} (US Central Time)</td>
-    {% endif %}
+      <td>{% blocktrans with event.end|localtime:output_timezone|date:_("DATETIME_FORMAT") as end_date %}{{ end_date }}{% endblocktrans %}</td>
     </tr>
     <tr>
     <td>Reoccurs</td>

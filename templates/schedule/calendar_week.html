@@ -5,7 +5,6 @@
 
 {% include "schedule/_dialogs.html" %}
 <div class="tablewrapper">
-    <div class="calendarname">{{ calendar.name }}</div>
     {% prevnext "week_calendar" calendar.slug periods.week "\Week W, M Y" %}
     <div class="now">
       <a href="{% url week_calendar %}">
@@ -16,11 +15,11 @@
 <div id="week">
   {% for day in periods.week.get_days %}
     <div class="weekday weekday{{forloop.counter}}">
-      <div class="weekdayheader">
-        <a href="{% url day_calendar %}{% querystring_for_date day.start %}">
-          {{day.start|date:"l, d"}}
-        </a>
-      </div>
+      {# <div class="weekdayheader"> #}
+      {#   <a href="{% url day_calendar %}{% querystring_for_date day.start %}"> #}
+      {#     {{day.start|date:"l, d"}} #}
+      {#   </a> #}
+      {# </div> #}
       <div class="weekdaytable">
       {% if forloop.first %}
           {% daily_table day 230 80 600 9 21 %}

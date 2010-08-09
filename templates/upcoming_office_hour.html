@@ -1,0 +1,11 @@
+<div>
+{% with office_hour.event.creator as user %}
+  <h3>
+    <a href="{% url view_profile user.username %}"><em>{{ user.username }}</em></a>
+  </h3>
+  <p>Start: {{ office_hour.event.start }}</p>
+  <p>End: {{ office_hour.event.end }}</p>
+  <p>Stuff {{ user }} knows about:</p>
+  <ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
+{% endwith %}
+</div>

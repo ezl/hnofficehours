@@ -7,21 +7,20 @@
 <ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
 
 {% if request.user.is_authenticated %}
-  <div style="border: 1px solid #888; float: right; padding: .6em;">
+  <div class="contactUser" style="border: 1px solid #888;">
   {% with user.get_profile as u %}
     {% if u.aim %}
-      aimicon{{ u.aim }}
+      <a class="contact aim" href="{{ u.aim }}">aimicon</a>
     {% endif %}
     {% if u.skype %}
-      skypeicon{{ u.skype }}
+      <a class="contact skype" href="{{ u.skype }}">skypeicon</a>
     {% endif %}
     {% if u.gchat %}
-      gchaticon{{ u.gchat }}
+      <a class="contact gchat" href="{{ u.gchat }}">gchaticon</a>
     {% endif %}
     {% if u.phone %}
-      phoneicon{{ u.phone }}
+      <a class="contact phone" href="{{ u.phone }}">phoneicon</a>
     {% endif %}
-    aim gchat phone
   {% endwith %}
   </div>
 {% endif %}
