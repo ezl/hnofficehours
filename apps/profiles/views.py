@@ -50,7 +50,21 @@ def ajax_toggle_availability(request):
             datadict['availability'] = profile.is_available
     return HttpResponse(simplejson.dumps(datadict))
 
-
+def ajax_set_availability(request,set_status):
+    datadict = dict()
+    datadict['status'] = "failure"
+    if request.user.is_authenticated():
+        try:
+            user = request.user
+            profile = user.get_profile()
+            profile.is_available = bool(int(set_status))  # someone fix this casting for me please
+            profile.save()
+        except:
+            pass
+        else:
+            datadict['status'] = "success"
+            datadict['availability'] = profile.is_available
+    return HttpResponse(simplejson.dumps(datadict))
 
 
 
