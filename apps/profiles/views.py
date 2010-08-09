@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from datetime import datetime, timedelta
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.views.generic.simple import direct_to_template
@@ -63,6 +64,7 @@ def profile(request, template_name="profiles/skills_test.html"):
                                    instance=request.user.get_profile())
         if profile_form.is_valid():
             profile_form.save()
+            messages.success(request, 'Profile updated.')
     def update_skills():
         tag_list = request.POST.get('skills_text').split(',')
         for tag in tag_list:
@@ -75,6 +77,7 @@ def profile(request, template_name="profiles/skills_test.html"):
             for skill in skills_list:
                 profile.skills.add(skill)
         profile.save()
+        messages.success(request, 'Skills updated.')
     if request.method == "POST":
         origin = request.POST.get('origin')
         if origin == "profile":
