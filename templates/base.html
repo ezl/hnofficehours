@@ -37,9 +37,9 @@
       <div id="nav">
           {% if request.user.is_authenticated %}
             {% if user.get_profile.is_available %}
-              <a href="">Available</a>
+              <a class="ajax_toggle_availability" href="{{ request.path }}">Available</a>
             {% else %}
-              <a href="">Unavailable</a>
+              <a class="ajax_toggle_availability" href="{{ request.path }}">Unavailable</a>
             {% endif %}
             Logged in as <a href="{% url view_profile username=user.username %}">{{ request.user.username }}</a>
             <a class="btn" href="{% url profile %}">User CP</a>
