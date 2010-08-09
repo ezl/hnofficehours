@@ -109,6 +109,7 @@ INSTALLED_APPS = (
     'ajax_select',
     'django_extensions',
     'schedule',
+    'timezones',
 
     # local apps:
     'officehours',
