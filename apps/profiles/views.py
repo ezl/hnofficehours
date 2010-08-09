@@ -47,7 +47,7 @@ def ajax_toggle_availability(request):
             pass
         else:
             datadict['status'] = "success"
-    datadict['availability'] = profile.is_available
+            datadict['availability'] = profile.is_available
     return HttpResponse(simplejson.dumps(datadict))
 
 
