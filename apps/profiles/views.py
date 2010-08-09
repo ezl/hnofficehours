@@ -56,7 +56,7 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
 
 
 @login_required
-def profile(request, template_name="profiles/skills_test.html"):
+def profile(request, template_name="profiles/edit_profile.html"):
     user = request.user
     profile = user.profile
     def update_profile():
