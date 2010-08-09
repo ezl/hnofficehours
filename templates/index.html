@@ -92,33 +92,10 @@ display:inline-block; padding:2px 3px; color:white; background-color:darkCyan; m
 .contact.phone { background-position:-48px 0; }
 
 
-
-
-
-
-.green { color: #46B423; background-color: #46B423 !important; }
-.fuschia { color: #C465C3; background-color: #C465C3 !important; }
-.BlueViolet { color: BlueViolet; background-color: BlueViolet !important; }
-.Brown { color: Brown; background-color: Brown !important; }
-.CadetBlue { color: CadetBlue; background-color: CadetBlue !important; }
-.Chocolate { color: Chocolate; background-color: Chocolate !important; }
-.CornflowerBlue { color: CornflowerBlue; background-color: CornflowerBlue !important; }
-.Crimson { color: Crimson; background-color: Crimson !important; }
-.DarkBlue { color: DarkBlue; background-color: DarkBlue !important; }
-.DarkCyan { color: DarkCyan; background-color: DarkCyan !important; }
-.DarkGoldenRod { color: DarkGoldenRod; background-color: DarkGoldenRod !important; }
-.DarkGreen { background-color: DarkGreen !important; }
-.DarkMagenta { background-color: DarkMagenta !important; }
-.DarkRed { background-color: DarkRed !important; }
-.DarkSlateBlue { background-color: DarkSlateBlue !important; }
-.DarkTurquoise { background-color: DarkTurquoise !important; }
-.DarkViolet { background-color: DarkViolet !important; }
-.DeepPink { background-color: DeepPink !important; }
 </style>
 <script type="text/javascript">
-  var colors = [ 'green','fuschia','BlueViolet','Brown','CadetBlue','Chocolate','CornflowerBlue','Crimson','DarkBlue',
+var colors = ['#46B423','#C465C3','BlueViolet','Brown','CadetBlue','Chocolate','CornflowerBlue','Crimson','DarkBlue',
   'DarkCyan','DarkGoldenRod','DarkGreen','DarkMagenta','DarkRed','DarkSlateBlue','DarkTurquoise','DarkViolet','DeepPink',];
-//colors[i % colors.length];
 var allTags = [];
 $(function(){
   $('div.list ul.skill li')
@@ -128,9 +105,8 @@ $(function(){
     })
     .each(function(){
       var tag = $.trim(this.innerHTML);
-      $(this).addClass(colors[allTags.indexOf(tag) % colors.length]);
+      $(this).css('background-color',colors[allTags.indexOf(tag) % colors.length]);
     });
-
 });
 </script>
 {% endblock %}
