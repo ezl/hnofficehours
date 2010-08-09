@@ -1,4 +1,3 @@
-import datetime
 from datetime import datetime, timedelta
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -54,10 +53,10 @@ def create_or_edit_event(request, calendar_slug, event_id=None, next=None,
     initial_data = None
     if date:
         try:
-            start = datetime.datetime(**date)
+            start = datetime(**date)
             initial_data = {
                 "start": start,
-                "end": start + datetime.timedelta(minutes=30)
+                "end": start + timedelta(minutes=30)
             }
         except TypeError:
             raise Http404

@@ -14,54 +14,52 @@ global_calendar_slug = getattr(settings, 'GLOBAL_CALENDAR_SLUG', 'cal')
 
 urlpatterns = patterns('',
 
+# url(r'^$',
+#     'schedule.views.calendar',
+#     name = "calendar_home",
+#     kwargs={'calendar_slug': global_calendar_slug}
+#     ),
+# 
+# url(r'^year/$',
+#     'schedule.views.calendar_by_periods',
+#     name="year_calendar",
+#     kwargs={'periods': [Year],
+#             'calendar_slug': global_calendar_slug,
+#             'template_name': 'schedule/calendar_year.html'}),
+# 
+# url(r'^tri_month/$',
+#     'schedule.views.calendar_by_periods',
+#     name="tri_month_calendar",
+#     kwargs={'periods': [Month],
+#             'calendar_slug': global_calendar_slug,
+#             'template_name': 'schedule/calendar_tri_month.html'}),
+# 
+# url(r'^compact_month/$',
+#     'schedule.views.calendar_by_periods',
+#     name = "compact_calendar",
+#     kwargs={'periods': [Month],
+#             'calendar_slug': global_calendar_slug,
+#             'template_name': 'schedule/calendar_compact_month.html'}),
+# 
+# url(r'^month/$',
+#     'schedule.views.calendar_by_periods',
+#     name = "month_calendar",
+#     kwargs={'periods': [Month],
+#             'calendar_slug': global_calendar_slug,
+#             'template_name': 'schedule/calendar_month.html'}),
 url(r'^$',
-    'schedule.views.calendar',
-    name = "calendar_home",
-    kwargs={'calendar_slug': global_calendar_slug}
-    ),
-
-url(r'^year/$',
-    'schedule.views.calendar_by_periods',
-    name="year_calendar",
-    kwargs={'periods': [Year],
-            'calendar_slug': global_calendar_slug,
-            'template_name': 'schedule/calendar_year.html'}),
-
-url(r'^tri_month/$',
-    'schedule.views.calendar_by_periods',
-    name="tri_month_calendar",
-    kwargs={'periods': [Month],
-            'calendar_slug': global_calendar_slug,
-            'template_name': 'schedule/calendar_tri_month.html'}),
-
-url(r'^compact_month/$',
-    'schedule.views.calendar_by_periods',
-    name = "compact_calendar",
-    kwargs={'periods': [Month],
-            'calendar_slug': global_calendar_slug,
-            'template_name': 'schedule/calendar_compact_month.html'}),
-
-url(r'^month/$',
-    'schedule.views.calendar_by_periods',
-    name = "month_calendar",
-    kwargs={'periods': [Month],
-            'calendar_slug': global_calendar_slug,
-            'template_name': 'schedule/calendar_month.html'}),
-
-url(r'^week/$',
     'schedule.views.calendar_by_periods',
     name = "week_calendar",
     kwargs={'periods': [Week],
             'calendar_slug': global_calendar_slug,
             'template_name': 'schedule/calendar_week.html'}),
-
-url(r'^daily/$',
-    'schedule.views.calendar_by_periods',
-    name = "day_calendar",
-    kwargs={'periods': [Day],
-            'calendar_slug': global_calendar_slug,
-            'template_name': 'schedule/calendar_day.html'}),
-
+# url(r'^daily/$',
+#     'schedule.views.calendar_by_periods',
+#     name = "day_calendar",
+#     kwargs={'periods': [Day],
+#             'calendar_slug': global_calendar_slug,
+#             'template_name': 'schedule/calendar_day.html'}),
+# 
 url(r'^event/create/$',
     'officehours.views.create_or_edit_event',
     name='calendar_create_event',
@@ -109,10 +107,10 @@ url(r'^available_now/$',
 
 
 #feed urls 
-url(r'^feed/calendar/(.*)/$',
-    'django.contrib.syndication.views.feed', 
-    { "feed_dict": { "upcoming": UpcomingEventsFeed } }),
- 
-(r'^ical/calendar/(.*)/$', CalendarICalendar()),
+# url(r'^feed/calendar/(.*)/$',
+#     'django.contrib.syndication.views.feed', 
+#     { "feed_dict": { "upcoming": UpcomingEventsFeed } }),
+#  
+# (r'^ical/calendar/(.*)/$', CalendarICalendar()),
 
 )

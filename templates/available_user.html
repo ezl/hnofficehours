@@ -10,16 +10,16 @@
   <div class="contactUser" style="border: 1px solid #888;">
   {% with user.get_profile as u %}
     {% if u.aim %}
-      <a href="{{ u.aim }}">aimicon</a>
+      <a class="contact aim" href="{{ u.aim }}">aimicon</a>
     {% endif %}
     {% if u.skype %}
-      <a href="{{ u.skype }}">skypeicon</a>
+      <a class="contact skype" href="{{ u.skype }}">skypeicon</a>
     {% endif %}
     {% if u.gchat %}
-      <a href="{{ u.gchat }}">gchaticon</a>
+      <a class="contact gchat" href="{{ u.gchat }}">gchaticon</a>
     {% endif %}
     {% if u.phone %}
-      <a href="{{ u.phone }}">phoneicon</a>
+      <a class="contact phone" href="{{ u.phone }}">phoneicon</a>
     {% endif %}
   {% endwith %}
   </div>
