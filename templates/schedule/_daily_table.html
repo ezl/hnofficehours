@@ -1,7 +1,7 @@
 {% load scheduletags %} {% load officehourstags %}
   <div class="slot_column" style="width:{{width_slot}}px;height:{{height}}px;">
     {% for slot in slots %}
-    <div class="slot" style="top:{{slot.top}}px;height:{{slot.height}}px;width:{{width}}px;">
+    <div class="slot" style="top:{{slot.top}}px;height:{{slot.height}}px;line-height:{{slot.height}}px; width:{{width}}px;">
       <span class="time">{{ slot.start|time:"G:i" }}</span>
       {% if addable %}
       {% create_event_url calendar slot.start %}
