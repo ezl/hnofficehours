@@ -75,7 +75,12 @@ Start by going into your User CP and clicking around.</p>
 
 display:inline-block; padding:2px 3px; color:white; background:darkCyan; margin:2px; font-size:0.9em; }
 .contactUser { position:absolute; background:white; right:0; top:-8px;}
-
+.contact { background:url({{ MEDIA_URL}}images/icons-contact.png) no-repeat scroll 0 0; display: inline-block; width:16px; height:16px; text-indent: -999em; }
+.contact:hover { border:0 none; }
+.contact.skype { background-position:0 0; }
+.contact.aim { background-position:-16px 0; }
+.contact.gchat { background-position:-32px 0; }
+.contact.phone { background:none; text-indent:0; }
 
 
 
