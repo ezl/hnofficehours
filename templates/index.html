@@ -21,7 +21,13 @@
   </div>
 </div>
 <div class="shadow-down"></div>
-<div style="float:right; border:2px dashed red; width:50%; background:paleGoldenRod;">
+<div style="float:right; width:50%;">
+<h2>Upcoming Office Hours</h2>
+{% for office_hour in upcoming_office_hours %}
+  {% include "upcoming_office_hour.html" %}
+{% endfor %}
+</div>
+<div style="display: none; border:2px dashed red; width:50%; background:paleGoldenRod;">
 <div>
 <p>This page will eventually contain a list of currently available office hours</p>
 <p>if authenticated, should have a link to create office hours</p>
@@ -45,7 +51,7 @@ Start by going into your User CP and clicking around.</p>
 <div id="now">
 <h2>Available Now</h2>
 {% for user in users %}
-  {% include "office_hour.html" %}
+  {% include "available_user.html" %}
 {% endfor %}
 </div>
 {% endblock %}
