@@ -50,7 +50,7 @@ def ajax_toggle_availability(request):
             datadict['availability'] = profile.is_available
     return HttpResponse(simplejson.dumps(datadict))
 
-def ajax_set_availability(request,set_status):
+def set_availability(request,set_status):
     datadict = dict()
     datadict['status'] = "failure"
     if request.user.is_authenticated():
@@ -64,7 +64,10 @@ def ajax_set_availability(request,set_status):
         else:
             datadict['status'] = "success"
             datadict['availability'] = profile.is_available
-    return HttpResponse(simplejson.dumps(datadict))
+    if request.is_ajax():
+      return HttpResponse(simplejson.dumps(datadict))
+    else:
+      return HttpResponse("GOOBER!, ENABLE JAVASCRIPT! "+simplejson.dumps(datadict))
 
 
 
