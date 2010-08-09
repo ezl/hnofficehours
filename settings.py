@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     'timezones',
 
     # local apps:
+    'availability',
     'officehours',
     'registration',
     'profiles',
