@@ -16,6 +16,7 @@ from schedule.views import get_next_url
 
 
 @check_event_permissions
+@login_required
 def create_or_edit_event(request, calendar_slug, event_id=None, next=None,
     template_name='schedule/create_event.html', form_class = EventForm):
     """
@@ -70,7 +71,7 @@ def create_or_edit_event(request, calendar_slug, event_id=None, next=None,
     calendar = get_object_or_404(Calendar, slug=calendar_slug)
 
     form = form_class(data=request.POST or None, instance=instance,
-        hour24=True, initial=initial_data)
+        hour24=True, creator=request.user, initial=initial_data)
 
     if form.is_valid():
         event = form.save(commit=False)

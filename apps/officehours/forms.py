@@ -4,6 +4,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from schedule.forms import *
 from schedule.models import Event
+from timezones import utils as tz_utils
 
 
 # If we ever go international, FIRST_DAY_OF_WEEK needs to be a user setting.
@@ -26,8 +27,28 @@ class EventForm(SpanForm):
         fields = ('start', 'end', 'repeats', 'end_recurring_period',
                   'repeats_on',)
 
-    def __init__(self, hour24=False, *args, **kwargs):
+    def __init__(self, creator, hour24=False, *args, **kwargs):
+        self.creator = creator
         super(EventForm, self).__init__(*args, **kwargs)
+        
+    def coerce_datetime_tz(self, datetime):
+        server_tz = settings.TIME_ZONE
+        if self.instance is None or self.instance.creator is None:
+            user_tz = self.creator.get_profile().timezone
+        else:
+            user_tz = self.instance.creator.get_profile().timezone
+        return tz_utils.adjust_datetime_to_timezone(datetime, user_tz, server_tz)
+    
+    def clean_start(self):
+        # user was instructed to give us times in his time zone, so we
+        # need to convert them to the server's.
+        return self.coerce_datetime_tz(self.cleaned_data['start'])
+
+    def clean_end(self):
+        # user was instructed to give us times in his time zone, so we
+        # need to convert them to the server's.
+        return self.coerce_datetime_tz(self.cleaned_data['end'])
+
 
     def clean(self):
         if self.cleaned_data.get('repeats', False):
