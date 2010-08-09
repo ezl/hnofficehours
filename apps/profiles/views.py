@@ -41,8 +41,7 @@ def _can_view_full_profile(user):
 
 def list_profiles_by_skill(request, skill):
     skills = Skill.objects.filter(name__contains=skill)
-    qs = User.objects.filter(profile__skills__in=skills)
-    qs = set(qs)
+    qs = User.objects.filter(profile__skills__in=skills).distinct()
     return list_profiles(request, qs=qs)
 
 def list_profiles(request, qs=None, template_name='profiles/list_profiles.html'):
