@@ -39,8 +39,22 @@ def _can_view_full_profile(user):
     # other requirements.
     return user.is_authenticated()
 
-def list_profiles(request, template_name='profiles/list_profiles.html'):
-    users = User.objects.all()
+def list_profiles_by_skill(request, skill):
+    skills = Skill.objects.filter(name__contains=skill)
+    qs = User.objects.filter(profile__skills__in=skills)
+    qs = set(qs)
+    return list_profiles(request, qs=qs)
+
+def list_profiles(request, qs=None, template_name='profiles/list_profiles.html'):
+    """Display a list of Users
+
+       If qs == None, return list of all Users
+       Optionally pass a qs of users
+    """
+    if qs == None:
+        users = User.objects.all()
+    else:
+        users = qs
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))
 
