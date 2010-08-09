@@ -22,7 +22,7 @@ class Profile(models.Model):
 def create_profile_object(sender, instance, created, **kwargs):
     if not instance or not created:
         return
-    Profile.objects.create(user=instance)
+    Profile.objects.get_or_create(user=instance)
 models.signals.post_save.connect(create_profile_object, sender=User)
 
 class Skill(models.Model):
