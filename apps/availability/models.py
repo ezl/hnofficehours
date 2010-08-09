@@ -8,10 +8,10 @@ class LastUpdate(models.Model):
     task ran so that we can define a Period object for the appropriate time
     delta.
     """
-    last_update = models.DateTimeField(null=True, auto_now=True)
+    when = models.DateTimeField(null=True, auto_now=True)
 
     def __unicode__(self):
-        return str(self.last_update)
+        return str(self.when)
 
 
 def set_first_update(sender=None, app=None, **kwargs):
