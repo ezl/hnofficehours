@@ -1,5 +1,5 @@
 <div class="officehour{% if user.get_profile.is_available %} status-available{% else %} status-busy{% endif %}">
-
+<div>
 <h3>
   <a href="{% url view_profile user.username %}"><em>{{ user.username }}</em></a>
   <span>{% if user.get_profile.is_available %}AVAILABLE{% else %}BUSY{% endif %}</span>
@@ -24,4 +24,5 @@
   {% endwith %}
   </div>
 {% endif %}
+</div>
 </div>
