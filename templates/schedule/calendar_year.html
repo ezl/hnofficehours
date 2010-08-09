@@ -28,12 +28,14 @@
     {% endfor %}
     </tr>
 </table></p>
-<div class="navigation">
-  <a href="{% url month_calendar %}">
-    Current Month Calendar
-  </a>
-  <a href="{% url year_calendar %}">
-    Current Year Calendar
-  </a>
-</div>
 {% endblock %}
+
+{% block schedule_subnav %}
+  <div class="pretty">
+    <h2>Subview:</h2>
+    <ul>
+        <li><a href="{% url month_calendar %}">Current Month Calendar</a></li>
+        <li><a href="{% url year_calendar %}">Current Year Calendar</a></li>
+    </ul>
+  </div>
+{% endblock schedule_subnav %}

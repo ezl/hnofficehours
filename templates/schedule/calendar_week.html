@@ -4,16 +4,6 @@
 {% block body %}
 
 {% include "schedule/_dialogs.html" %}
-
-<div class="navigation">
-  <a href="{% url month_calendar %}{% querystring_for_date periods.week.start 2 %}">
-    Month
-  </a>
-  <a href="{% url year_calendar %}{% querystring_for_date periods.week.start 1%}">
-    Year
-  </a>
-</div>
-
 <div class="tablewrapper">
     <div class="calendarname">{{ calendar.name }}</div>
     {% prevnext "week_calendar" calendar.slug periods.week "\Week W, M Y" %}
@@ -22,7 +12,6 @@
         This week
       </a>
     </div>
-</div>
 
 <div id="week">
   {% for day in periods.week.get_days %}
@@ -42,5 +31,15 @@
     </div>
   {% endfor %}
 </div>
-
+</div>
 {% endblock %}
+
+{% block schedule_subnav %}
+  <div class="pretty">
+    <h2>Subview:</h2>
+    <ul>
+        <li><a href="{% url month_calendar %}{% querystring_for_date periods.week.start 2 %}">Month</a></li>
+        <li><a href="{% url year_calendar %}{% querystring_for_date periods.week.start 1%}">Year</a></li>
+    </ul>
+  </div>
+{% endblock schedule_subnav %}
