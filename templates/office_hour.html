@@ -6,5 +6,23 @@
 </h3>
 <ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
 
-<hr />
+{% if request.user.is_authenticated %}
+  <div style="border: 1px solid #888; float: right; padding: .6em;">
+  {% with user.get_profile as u %}
+    {% if u.aim %}
+      aimicon{{ u.aim }}
+    {% endif %}
+    {% if u.skype %}
+      skypeicon{{ u.skype }}
+    {% endif %}
+    {% if u.gchat %}
+      gchaticon{{ u.gchat }}
+    {% endif %}
+    {% if u.phone %}
+      phoneicon{{ u.phone }}
+    {% endif %}
+    aim gchat phone
+  {% endwith %}
+  </div>
+{% endif %}
 </div>
