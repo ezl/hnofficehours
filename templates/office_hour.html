@@ -1,7 +1,10 @@
-<div class="officehour">
+<div class="officehour{% if user.get_profile.is_available %} status-available{% else %} status-busy{% endif %}">
 
-<h3><em><a href="{% url view_profile user.username %}">{{ user.username }}</a></em></h3>
-<p>skills: {{ user.get_profile.skills.all|join:", " }}</p>
-<p>availability status:{% if user.get_profile.is_available %}GREEN{% else %}RED{% endif %}</p>
+<h3>
+  <a href="{% url view_profile user.username %}"><em>{{ user.username }}</em></a>
+  <span>{% if user.get_profile.is_available %}AVAILABLE{% else %}BUSY{% endif %}</span>
+</h3>
+<ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
+
 <hr />
 </div>
