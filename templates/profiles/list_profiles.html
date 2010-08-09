@@ -5,7 +5,7 @@
 <h1>Current users</h1>
 <ul>
 {% for user in users %}
-  <li><a href="{% url view_profile username=user.username %}">{{ user.username }}</a></li>
+  {% include "profiles/user.html" %}
 {% endfor%}
 </ul>
 </div>
