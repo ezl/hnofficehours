@@ -214,7 +214,7 @@ div#week div.weekday1 {
 }
 
 div#week div.slot {
-  font-size:14px;
+  font-size:1em;
 }
 
 div.weekday span.time {
@@ -324,9 +324,11 @@ table.pretty tfoot {
 
 #scheduleNav{
   width: 170px;
-  margin: 0;
   float: left;
 }
 #scheduleNav .pretty{
+  margin: 0;
   width: auto;
 }
+
+a:hover { border: 0 none; } /* override base.css */
