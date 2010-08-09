@@ -187,6 +187,9 @@ div#week {
   margin-top:10px;
   overflow:auto;
   position:relative;
+  text-align:left;
+  width:1140px;
+
 }
 
 div#week div.weekdayheader {
@@ -211,7 +214,7 @@ div#week div.weekday1 {
 }
 
 div#week div.slot {
-  font-size:14px;
+  font-size:1em;
 }
 
 div.weekday span.time {
@@ -303,7 +306,12 @@ div.navigation a {
 
 div.tablewrapper {
     text-align:center;
+    width: 700px;
+    position:relative;
+    float:left;
 }
+
+/* .pretty */
 .pretty { clear:none; }
 table.pretty thead {
   background: #ddd;
@@ -313,3 +321,14 @@ table.pretty tfoot {
   background: #ddd;
   font-size: 0.8em;
 }
+
+#scheduleNav{
+  width: 170px;
+  float: left;
+}
+#scheduleNav .pretty{
+  margin: 0;
+  width: auto;
+}
+
+a:hover { border: 0 none; } /* override base.css */

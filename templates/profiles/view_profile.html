@@ -11,15 +11,15 @@
 
 {% block content %}
 <div class="pretty">
+  <h1>
+    {{ user.username }}
+    {% if user.get_profile.is_available %}
+      (Currently available)
+    {% else %}
+      (Not available)
+    {% endif %}
+  </h1>
   {% if display_full_profile %}
-    <h1>
-      {{ user.username }}
-      {% if user.get_profile.is_available %}
-        (Currently available)
-      {% else %}
-        (Not available)
-      {% endif %}
-    </h1>
     {% with user.get_profile as profile %}
       <p><label>skype:</label> {{ profile.skype }}
       {% if profile.skype %}
@@ -45,7 +45,7 @@
     </ul>
   <br />
   {# AVAILABLE OFFICE HOURS #}
-  {% include "profiles/office_hours.html" %}
+  {% include "profiles/user_office_hours.html" %}
 
 </div>
 <div>
