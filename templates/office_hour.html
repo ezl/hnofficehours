@@ -3,5 +3,22 @@
 <h3><em><a href="{% url view_profile user.username %}">{{ user.username }}</a></em></h3>
 <p>skills: {{ user.get_profile.skills.all|join:", " }}</p>
 <p>availability status:{% if user.get_profile.is_available %}GREEN{% else %}RED{% endif %}</p>
+<div style="border: 1px solid #888; float: right; padding: .6em;">
+{% with user.get_profile as u %}
+  {% if u.aim %}
+    aimicon{{ u.aim }}
+  {% endif %}
+  {% if u.skype %}
+    skypeicon{{ u.skype }}
+  {% endif %}
+  {% if u.gchat %}
+    gchaticon{{ u.gchat }}
+  {% endif %}
+  {% if u.phone %}
+    phoneicon{{ u.phone }}
+  {% endif %}
+  aim gchat phone
+{% endwith %}
+</div>
 <hr />
 </div>
