@@ -61,5 +61,6 @@ form .errorlist { color:#C00; font-size:11px; margin-left:140px; }
 /* other stuff */
 a.btn { color:white; background:#FF6600; font-size:0.8em; font-weight:bold; padding: 3px; }
 a.btn:hover { color:navy; border-bottom:0 none; }
+ul.skill > li { background-color:darkCyan; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; color:white; display:inline-block; font-size:0.9em; margin:2px; padding:2px 3px; }
 
 .clear { clear:both; }
