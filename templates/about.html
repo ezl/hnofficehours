@@ -1,20 +1,7 @@
 {% extends "base.html" %}
 
-{% block css %}
-{{block.super}}
-<style type="text/css"> 
-#north { height:200px; position:relative; }
-#blurb { color:black; top:0; left:0; font-size: 16px; width:500px; position:absolute; padding:20px; }
-#blurb > * { margin: 10px 0; }
-#blurb-pic { top:0; right:0; position:absolute; }
-.big { font-size: 24px; }
-</style> 
-{% endblock %}
-
 {% block content %}
-<div id="north" class="debug">
-  <div id="blurb" class="debug">
-    <p class="big">
+    <p>
         HN Office Hours is an idea that started as Hacker News discussion thread. So far it's been
         a weekend hack, but here are the people that contributed. Email one of us if we missed you!
     </p>
@@ -23,9 +10,9 @@
     </h3>
 
     <ul id="about">
-        <li> E Liu 
-             e@pybrew.com
+        <li> E Liu
              <a href="http://github.com/ezl/">github.com/ezl/</a>
+             e@pybrew.com
         </li>
         <li> Rodrigo Guzman 
              <a href="http://metarz.net/">metarz.net</a> 
@@ -50,7 +37,4 @@
              c@crccheck.com
         </li>
     </ul>
-
-  </div>
-</div>
 {% endblock content %}
