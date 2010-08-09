@@ -3,25 +3,25 @@
 {% load scheduletags %} {% load officehourstags %}
 {% load timezone_filters %}
 {% block body %}
-<div class="navigation pretty">
-  <h2>View</h2>
-  <ul>
-  <li><a href="{% url day_calendar %}{% querystring_for_date event.start 3 %}">
-    Day
-  </a></li>
-  <li><a href="{% url month_calendar %}{% querystring_for_date event.start 2 %}">
-    Month
-  </a></li>
-  <li><a href="{% url year_calendar %}{% querystring_for_date event.start 1%}">
-    Year
-  </a></li>
-  {% if back_url %}
-  <li><a href="{{ back_url }}">
-    <img border="0" src="{{ MEDIA_URL }}left_mod.png" alt="{% trans "Back" %}"/>
-  </a></li>
-  {% endif %}
-  </ul>
-</div>
+{# <div class="navigation pretty"> #}
+{#   <h2>View</h2> #}
+{#   <ul> #}
+{#   <li><a href="{% url day_calendar %}{% querystring_for_date event.start 3 %}"> #}
+{#     Day #}
+{#   </a></li> #}
+{#   <li><a href="{% url month_calendar %}{% querystring_for_date event.start 2 %}"> #}
+{#     Month #}
+{#   </a></li> #}
+{#   <li><a href="{% url year_calendar %}{% querystring_for_date event.start 1%}"> #}
+{#     Year #}
+{#   </a></li> #}
+{#   {% if back_url %} #}
+{#   <li><a href="{{ back_url }}"> #}
+{#     <img border="0" src="{{ MEDIA_URL }}left_mod.png" alt="{% trans "Back" %}"/> #}
+{#   </a></li> #}
+{#   {% endif %} #}
+{#   </ul> #}
+{# </div> #}
 <h2 align="center">{{event.title}}</h2>
 <table align="center" class="pretty">
   <thead>
