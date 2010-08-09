@@ -5,7 +5,10 @@
     <script type="text/javascript" src="{{ MEDIA_URL }}schedule/js/jquery.timePicker.js"></script>
     <script type="text/javascript">
     $(function() {
-        $("#id_start_0").datepicker({dateFormat: $.datepicker.ATOM});
+        $("#id_start_0").datepicker({
+          dateFormat: $.datepicker.ATOM,
+          onSelect: function(dateText,inst){ $("#id_end_0").val(dateText); }  // automagically set end to the same date
+        });
         $("#id_end_0").datepicker({dateFormat: $.datepicker.ATOM});
         $("#id_start_1").timePicker();
         $("#id_end_1").timePicker();
@@ -13,12 +16,19 @@
         var oldTime = $.timePicker("#id_start_1").getTime();
         $("#id_start_1").change(function() {
           if ($("#id_end_1").val()) { // Only update when second input has a value.
-          // Calculate duration.
-          var duration = ($.timePicker("#id_end_1").getTime() - oldTime);
-          var time = $.timePicker("#id_start_1").getTime();
-          // Calculate and update the time in the second input.
-          $.timePicker("#id_end_1").setTime(new Date(new Date(time.getTime() + duration)));
-          oldTime = time;
+            // this block probably comes from http://labs.perifer.se/timedatepicker/
+            // Calculate duration.
+            var duration = ($.timePicker("#id_end_1").getTime() - oldTime);
+            var time = $.timePicker("#id_start_1").getTime();
+            // Calculate and update the time in the second input.
+            $.timePicker("#id_end_1").setTime(new Date(time.getTime() + duration));
+            oldTime = time;
+          } else {  // automagically populate an hour TODO magic number
+            var time = $.timePicker("#id_start_1").getTime();
+            $.timePicker("#id_end_1").setTime(new Date(time.getTime() + 60*60*1000));
+          }
+          if (!$("#id_start_0").val() && !$("#id_end_0").val()) { //  automagically populate with today
+            $("#id_start_0,#id_end_0").datepicker("setDate","today");
           }
         });
         // Validate.

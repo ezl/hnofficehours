@@ -35,13 +35,14 @@
         <a href="{% url index %}">HN Office Hours</a>
       </div>
       <div id="nav">
-      {% if request.user.is_authenticated %}
-        Logged in as <a href="{% url view_profile username=user.username %}">{{ request.user.username }}</a>
-        <a class="btn" href="{% url profile %}">User CP</a>
-        <a class="btn" href="{% url logout %}">logout</a>
-      {% else %}
-        <a class="btn" href="{% url login %}">login</a> or <a class="btn" href="{% url register %}">signup</a>
-      {% endif %}
+          {% if request.user.is_authenticated %}
+            Logged in as <a href="{% url view_profile username=user.username %}">{{ request.user.username }}</a>
+            <a class="btn" href="{% url profile %}">User CP</a>
+            <a class="btn" href="{% url logout %}">logout</a>
+          {% else %}
+            <a class="btn" href="{% url login %}">login</a> or <a class="btn" href="{% url register %}">signup</a>
+          {% endif %}
+          <a class="btn" href="/about/">About</a>
       </div>
     </div>
     {% block content %} {% endblock %}

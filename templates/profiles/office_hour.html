@@ -1,8 +1,10 @@
+{% load timezone_filters %}
+
 <li>
   {{ office_hour.event.creator }}
   skype: {{ office_hour.event.creator.get_profile.skype }}
-  starts: {{ office_hour.start }}
-  ends: {{ office_hour.end }}
+  starts: {{ office_hour.start|localtime:request.user.get_profile.timezone }}
+  ends: {{ office_hour.end|localtime:request.user.get_profile.timezone }}
 </li>
 
 
