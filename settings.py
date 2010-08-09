@@ -77,6 +77,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
+    "hnofficehours.context_processors.output_timezone",
 )
 
 MIDDLEWARE_CLASSES = (
