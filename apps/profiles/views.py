@@ -7,6 +7,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.views.generic.simple import direct_to_template
 from schedule.models import Event
+from schedule.periods import Period
 
 from profiles.models import *
 from profiles.forms import ProfileForm, ProfileSkillsForm
@@ -49,8 +50,8 @@ def view_profile(request, username, template_name='profiles/view_profile.html'):
     events = Event.objects.filter(creator=user)
     start = datetime.now()
     end = start + timedelta(days=30)
-    office_hours = reduce(lambda x,y: x+y, [e.get_occurrences(start, end)
-                                            for e in events]) if events else []
+    period = Period(events=events, start=start, end=end)
+    office_hours = period.get_occurrences()
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))
 
