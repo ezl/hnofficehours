@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="north" class="debug">
+<div id="north" class="debug shadow-up">
   <div id="blurb" class="debug">
+      {% if request.user.is_authenticated %}
+  <p class="big">Welcome, {{ request.user.username }}</p>
+  <p>list more stuff depending on the context. display upcoming office hours.</p>
+  <ul>
+    <li><a href="{% url calendar_create_event %}">Add office hours</a></li>
+    <li><a href="{% url available_now %}">Mark me as available for the rest of the hour</a></li>
+  </ul>
+      {% else %}
   <p class="big">Get help from someone who knows what they're talking about.</p>
   <p>Talk to other HN users that have questions or donate a bit of your time to help others.</p>
   <p>It's free and makes people love you</p>
+      {% endif %}
   </div>
   <div id="blurb-pic">
   <img src="http://static.ivygateblog.com.s3.amazonaws.com/wp-content/uploads/2007/08/frink.jpg" height="200">
   </div>
 </div>
+<div class="shadow-down"></div>
+<div style="float:right; border:2px dashed red; width:50%; background:paleGoldenRod;">
 <div>
 <p>This page will eventually contain a list of currently available office hours</p>
 <p>if authenticated, should have a link to create office hours</p>
@@ -30,23 +41,23 @@ and our original <a href="proposal/">proposal</a></p>
 Login as a valid user. Either find a working username in the server you're using or sign up
 for the site yourself. There are some additional pages you'll want to check.
 Start by going into your User CP and clicking around.</p>
-<br />
-<br />
-<br />
-<h2>Current office hours:</h2>
-{% for office_hour in office_hours %}
+</div>
+<div id="now">
+<h2>Available Now</h2>
+{% for user in available_users %}
   {% include "office_hour.html" %}
 {% endfor %}
-<br />
-<br />
+</div>
 {% endblock %}
 
 {% block extra_head %}
 <style type="text/css">
-#north { height:200px; position:relative; border-bottom: 4px solid #FF6600; }
+#north { height:200px; position:relative; border-bottom:4px solid #FF6600; }
 #blurb { color:black; top:0; left:0; font-size: 16px; width:500px; position:absolute; padding:20px; }
 #blurb > * { margin: 10px 0; }
 #blurb-pic { top:0; right:0; position:absolute; }
 .big { font-size: 24px; }
+#now { margin:0 20px; width:400px; }
+#now h2 { color:black; font-size: 1.5em; border-bottom: 2px solid #FF6600; padding: 5px 3px; }
 </style>
 {% endblock %}

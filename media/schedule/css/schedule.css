@@ -256,7 +256,7 @@ div.time-picker li.selected {
     color: #fff;
 }
 
-#id_start_1, #id_end_1 { width:80px;}
+#id_start_0, #id_end_0, #id_start_1, #id_end_1 { width:80px;}
 
 /**** GENERAL SETTINGS ****/
 
@@ -268,7 +268,7 @@ div.time-picker li.selected {
   padding-right:5px;
 }
 
-body, td {font-family:sans-serif;}
+/*body, td {font-family:sans-serif;}*/
 
 .error {
   border:1px solid red;
@@ -291,7 +291,10 @@ div.calendarname {
 }
 
 div.navigation {
+  float:left;
+  width: 100px;
   text-align:center;
+  margin:0;
 }
 
 div.navigation a {
@@ -300,4 +303,13 @@ div.navigation a {
 
 div.tablewrapper {
     text-align:center;
+}
+.pretty { clear:none; }
+table.pretty thead {
+  background: #ddd;
+  font-size: 1.2em;
+}
+table.pretty tfoot {
+  background: #ddd;
+  font-size: 0.8em;
 }

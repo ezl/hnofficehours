@@ -2,15 +2,42 @@
 {% load i18n %}
 
 {% block body %}
-<b>{% trans "Create or change event. All fields are required." %}</b>
-<br/><br/>
 <form action="" method="post"> {% csrf_token %}
-<table>
-{{ form.as_table }}
-</table>
-<br/>
-<input type="submit" value="{% trans "Save" %}">
-<input type="button" value="{% trans "Cancel" %}" onclick="window.location='{{next}}'"/>
-<input type="hidden" name="next" value="{{next|default:""}}"/>
+<div class="pretty">
+<p class="help">{% trans "Create or change event. All fields are required." %}</p>
+
+
+
+<p>{{ form.start.label_tag }}{{ form.start }}</p>
+<p>{{ form.end.label_tag }}{{ form.end }}</p>
+<p class="help">{{ form.end.help_text}}</p>
+<p>{{ form.repeats.label_tag }} {{ form.repeats }}</p>
+<p>{{ form.end_recurring_period.label_tag }}{{ form.end_recurring_period }}</p>
+<p class="help">{{ form.end_recurring_period.help_text}}</p>
+<p style="float:left;">{{ form.repeats_on.label_tag }}</p>
+{{ form.repeats_on }}
+<p>
+<input type="submit" value="{% trans 'Save' %}">
+<input type="hidden" name="next" value="{{next|default:""}}">
+</p>
+</div>
 </form>
+{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    {# TODO WHERE DOES THIS BLOCK GO? event_form_base.html ? base.html ? #}
+<style>
+/* hacky css */
+  .disable { opacity: 0.3; }
+</style>
+<script type="text/javascript">
+function doStuff(){
+  $('form div.pretty > *:gt(3):not(:last)').toggleClass('disable',function() { return !$('#id_repeats').is(':checked'); });
+}
+$(function(){
+  $('#id_repeats').click(doStuff);
+  doStuff();
+});
+</script>
 {% endblock %}

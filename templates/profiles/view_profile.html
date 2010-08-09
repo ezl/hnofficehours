@@ -12,7 +12,14 @@
 {% block content %}
 <div class="pretty">
   {% if display_full_profile %}
-    <h1>{{ user.username }}</h1>
+    <h1>
+      {{ user.username }}
+      {% if user.get_profile.is_available %}
+        (Currently available)
+      {% else %}
+        (Not available)
+      {% endif %}
+    </h1>
     {% with user.get_profile as profile %}
       <p><label>skype:</label> {{ profile.skype }}
       {% if profile.skype %}
@@ -28,6 +35,15 @@
   {% endif %}
   {#  skills #}
   {# times #}
+  <h2>Holds office hours for:</h2>
+    <ul>
+    {% for skill in user.get_profile.skills.all %}
+      <li>{{ skill }}</li>
+    {% empty %}
+      <li>{{ user.username }} has not listed his skills</li>
+    {% endfor %}
+    </ul>
+  <br />
   <h2>Available office hours:</h2>
   <ul>
   {% for office_hour in office_hours %}
