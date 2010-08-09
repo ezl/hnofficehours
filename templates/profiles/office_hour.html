@@ -1,10 +1,9 @@
 {% load timezone_filters %}
 
 <li>
+  {% if editable %}<a href="{% url delete_event office_hour.event.id %}">&times;</a><a href="{% url edit_event office_hour.event.id %}">edit</a>{% endif %}
   {{ office_hour.event.creator }}
   skype: {{ office_hour.event.creator.get_profile.skype }}
   starts: {{ office_hour.start|localtime:request.user.get_profile.timezone }}
   ends: {{ office_hour.end|localtime:request.user.get_profile.timezone }}
 </li>
-
-
