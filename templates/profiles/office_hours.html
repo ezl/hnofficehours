@@ -1,0 +1,10 @@
+<div>
+  <h2>Available office hours:</h2>
+  <ul>
+  {% for office_hour in office_hours %}
+    {% include "profiles/office_hour.html" %}
+  {% empty %}
+    <li>No office hours.</li>
+  {% endfor %}
+  </ul>
+</div>

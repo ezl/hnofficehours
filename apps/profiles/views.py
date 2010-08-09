@@ -87,8 +87,15 @@ def profile(request, template_name="profiles/edit_profile.html"):
     profile_form = ProfileForm(instance=request.user.get_profile())
     skill_form = ProfileSkillsForm()
     skills = profile.skills.all()
+    events = Event.objects.filter(creator=user)
+    start = datetime.now()
+    end = start + timedelta(days=30)
+    office_hours = reduce(lambda x,y: x+y, [e.get_occurrences(start, end)
+                                            for e in events]) if events else []
     return direct_to_template(request, template_name,
                                         {'skill_form':skill_form,
                                          'profile_form':profile_form,
                                          'profile':profile,
-                                         'skills':skills})
+                                         'skills':skills,
+                                         'editable':True,
+                                         'office_hours':office_hours})
