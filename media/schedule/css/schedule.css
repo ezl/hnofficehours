@@ -327,6 +327,6 @@ table.pretty tfoot {
   margin: 0;
   float: left;
 }
-#scheduleNav .pretty,#scheduleSubnav .pretty{
+#scheduleNav .pretty{
   width: auto;
 }
