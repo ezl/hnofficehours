@@ -1,5 +1,7 @@
 <li>
   <a href="{% url view_profile username=user.username %}">{{ user.username }}</a>
+  {% if user.get_profile.skills.all %}
   <ul class="skill"><li>{{ user.get_profile.skills.all|join:"</li><li>" }}</li></ul>
+  {% endif %}
 </li>
 
