@@ -34,3 +34,21 @@ if(!Array.prototype.indexOf){Array.prototype.indexOf=function(elt){var len=this.
       });
   });
 })();
+
+
+/*
+ * Hook up availability buttons, 1st pass
+ */
+$(function(){
+  var $availability = $('#nav > a.setAvailability');
+  $availability.click(function(){
+    var self = this;
+    $.getJSON(this.href,function(data){
+      if (data.status == "success") {
+        $availability.removeClass('btn');
+        $availability.eq(!data.availability).addClass('btn');
+      }
+    });
+    return false;
+  });
+});

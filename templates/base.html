@@ -38,11 +38,11 @@
       <div id="nav">
           {% if request.user.is_authenticated %}
             {% if user.get_profile.is_available %}
-              <a class="ajax_toggle_availability active" href="{% url set_availability 1 %}">Available</a>
-              <a class="ajax_toggle_availability" href="{% url set_availability 0 %}">Unavailable</a>
+              <a class="setAvailability btn" href="{% url set_availability 1 %}">Available</a>
+              <a class="setAvailability" href="{% url set_availability 0 %}">Unavailable</a>
             {% else %}
-              <a class="ajax_toggle_availability" href="{% url set_availability 1 %}">Available</a>
-              <a class="ajax_toggle_availability active" href="{% url set_availability 0 %}">Unavailable</a>
+              <a class="setAvailability" href="{% url set_availability 1 %}">Available</a>
+              <a class="setAvailability btn" href="{% url set_availability 0 %}">Unavailable</a>
             {% endif %}
             Logged in as <a href="{% url view_profile username=user.username %}">{{ request.user.username }}</a>
             <a class="btn" href="{% url profile %}">User CP</a>
