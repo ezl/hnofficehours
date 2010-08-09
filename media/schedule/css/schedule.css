@@ -197,11 +197,13 @@ div#week div.weekdayheader {
   border:1px solid black;
   display:block;
   display:block;
-  font-size:14px;
+  font-size:1em;
   font-weight:bold;
   padding-left:5px;
 }
-
+div#week div.weekdayheader a {
+  color:inherit;
+}
 div#week div.weekdaytable {position:relative;}
 
 div#week div.weekday {
@@ -215,6 +217,13 @@ div#week div.weekday1 {
 
 div#week div.slot {
   font-size:1em;
+}
+
+div#week div.slot a.createEvent {
+  display:inline-block;
+  width:16px;
+  background:url(../img/add.png) no-repeat scroll 50% 50%;
+  text-indent: -999em;
 }
 
 div.weekday span.time {
