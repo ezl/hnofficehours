@@ -42,33 +42,33 @@ $(function(){
 
 {% block content %}
 <form method="POST" action="">{% csrf_token %}
-    <input type="hidden" style="display:none;" name="origin" value="profile" />
-    <div class="pretty" style="clear:none;">
+  <input type="hidden" style="display:none;" name="origin" value="profile" />
+  <div class="pretty">
     <h1>Update Your Profile</h1>
     {{profile_form.as_p}}
     <div class="footer"><input type="submit" value="Update profile"></div>
-    </div>
+  </div>
 </form>
 <form method="POST" action="">{% csrf_token %}
-    <input type="hidden" style="display:none;" name="origin" value="skill" />
-    <div class="pretty">
+  <input type="hidden" style="display:none;" name="origin" value="skill" />
+  <div class="pretty">
     <h1>Add Skills</h1>
     <p class="help">If entering multiple skills, separate skills using commas</p>
     {{skill_form.as_p}}
     <div class="footer"><input type="submit" value="Add"></div>
-    </div>
+  </div>
 </form>
 <div class="pretty">
-    <h1>Your Skills</h1>
-    <p  class="help">To remove a skill, click on the &times;</p>
-    <ul>
-        {% for skill in skills %}{% spaceless %}
-            <li id="skill-{{skill.id}}" class="skills">
-                <a class="ajax_delete">&times;</a>
-                {{skill}}
-            </li>
-        {% endspaceless %}{% endfor %}
-    </ul>
+  <h1>Your Skills</h1>
+  <p class="help">To remove a skill, click on the &times;</p>
+  <ul>
+    {% for skill in skills %}{% spaceless %}
+    <li id="skill-{{skill.id}}" class="skills">
+      <a class="ajax_delete">&times;</a>
+      {{skill}}
+    </li>
+    {% endspaceless %}{% endfor %}
+  </ul>
 </div>
 <div class="pretty">
 {# AVAILABLE OFFICE HOURS #}

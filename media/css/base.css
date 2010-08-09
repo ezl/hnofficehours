@@ -44,7 +44,7 @@ header,#header { border-bottom:4px solid #FF6600; color:black; padding-bottom:5p
 
 
 /* forms */
-.pretty { clear:both; background-image:-moz-linear-gradient(top, #EDEDDD, #f6f6ef); background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #EDEDDD),color-stop(1, #f6f6ef)); filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef'); -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef')"; margin:1em auto; padding:0 10px; width:560px; }
+.pretty { background-image:-moz-linear-gradient(top, #EDEDDD, #f6f6ef); background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0, #EDEDDD),color-stop(1, #f6f6ef)); filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef'); -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#EDEDDD', EndColorStr='#f6f6ef')"; margin:1em auto; padding:0 10px; width:560px; }
 .pretty h1 { font-size:20px; }
 .pretty h2 { font-size:17px; }
 .pretty > p { height:30px; padding:4px; }
