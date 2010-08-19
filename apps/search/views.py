@@ -5,7 +5,8 @@ from profiles.controllers import tag_clean
 from itertools import chain
 
 def strip_the_fucking_tags():
-    for bad_tag in filter(lambda x: x[1][0] == ' ', Skill.objects.all().values_list()):
+    bad_skills_list = filter(lambda x: x[1][0] == ' ', Skill.objects.all().values_list())
+    for bad_tag in bad_skills_list:
         bad_skill = Skill.objects.get(id = bad_tag[0])
         skills_check = Skill.objects.filter(name=tag_clean(bad_skill.name))
         if skills_check.count > 0:
@@ -16,6 +17,16 @@ def strip_the_fucking_tags():
         else:
             bad_skill.name = tag_clean(bad_skill.name)
             bad_skill.save()
+    """
+    for skill in Skill.objects.all():
+        dupes = Skill.objects.filter(name=skill).exclude(id = skill.id)
+        if dupes.count > 0:
+            for dupe in dupes:
+                poor_souls = dupe.profile_set.all()
+                for ps in poor_souls:
+                    ps.skills.remove(dupe)
+                    ps.skills.add(skill)
+    """
 
 def search(request):
     if request.method == "POST":
@@ -26,12 +37,10 @@ def search(request):
             strip_the_fucking_tags()
             if len(query_list) > 1:
                 try:
-                    qs = [Skill.objects.get(name__contains=qry).profile_set.all() for qry in query_list]
-                except:
-                    qs = []
-                if qs != []:
+                    qs = [list(chain(*[skill.profile_set.all() for skill in Skill.objects.filter(name__contains=tag_clean(qry))])) for qry in query_list]
                     results = list(set(qs[0]).intersection(*qs))
-                else:
+                    #list(set([list(chain(*[skill.profile_set.all() for skill in Skill.objects.filter(name__contains=tag_clean(qry))])) for qry in query_list][0]).intersection(*qs)) # one liner for lulz
+                except Exception as e:
                     results = None
             else:
                 try:
