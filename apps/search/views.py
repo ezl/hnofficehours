@@ -11,8 +11,8 @@ def strip_the_fucking_tags():
         skills_check = Skill.objects.filter(name=tag_clean(bad_skill.name))
         if skills_check.count > 0:
             for poor_soul in Profile.objects.filter(skills__id=bad_skill.id):
-                poor_soul.remove(bad_skill)
-                poor_soul.add(skills_check.exclude(id=bad_skill.id)[0])
+                poor_soul.skills.remove(bad_skill)
+                poor_soul.skills.add(skills_check.exclude(id=bad_skill.id)[0])
             bad_skill.delete()
         else:
             bad_skill.name = tag_clean(bad_skill.name)
