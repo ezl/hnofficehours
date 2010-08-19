@@ -25,8 +25,7 @@ def site_index(request, template_name='index.html'):
                     end=datetime.now() + timedelta(days=MAX_FUTURE_DAYS))
     upcoming_office_hours = future.get_occurrences()
     upcoming_office_hours = upcoming_office_hours[:MAX_FUTURE_OFFICE_HOURS]
-    return render_to_response(template_name, locals(),
-                              context_instance=RequestContext(request))
+    return direct_to_template(request, template_name, locals())
 
 def about(request):
     return direct_to_template(request, 'about.html')

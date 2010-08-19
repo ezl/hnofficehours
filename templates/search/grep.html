@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="pretty">
+        <form method="POST" action="">{% csrf_token %}
+            {{searchform}}
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+    <div class="results">
+        <ul>
+            {% for profile in results %}
+                <li>
+                    <a href="{% url view_profile profile %}">
+                        {{profile}}
+                    </a>
+                    who knows   <ul class="skill">
+                                    {% for skill in profile.skills.all %}
+                                    <li>
+                                        {% if profile.skills.count > 1 %}
+                                            {% if forloop.last %}
+                                                {{skill}}
+                                            {% else %}
+                                                {{skill}},
+                                            {% endif %}
+                                        {% else %}
+                                            {{skill}}
+                                        {% endif %}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+

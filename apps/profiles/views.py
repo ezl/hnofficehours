@@ -11,6 +11,7 @@ from schedule.periods import Period
 
 from profiles.models import *
 from profiles.forms import ProfileForm, ProfileSkillsForm
+from profiles.controllers import tag_clean
 from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
 
@@ -117,9 +118,12 @@ def profile(request, template_name="profiles/edit_profile.html"):
             profile_form.save()
             messages.success(request, 'Profile updated.')
     def update_skills():
-        tag_list = request.POST.get('skills_text').split(',')
+        #fuck capitals
+        tag_list = request.POST.get('skills_text').lower().split(',')
         for tag in tag_list:
             if tag and tag != '':
+                #fucking excess whitespace man
+                tag = tag_clean(tag)
                 skill, created = Skill.objects.get_or_create(name=tag)
                 profile.skills.add(skill)
         psf = ProfileSkillsForm(request.POST)

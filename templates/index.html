@@ -9,11 +9,13 @@
   <ul>
     <li><a href="{% url calendar_create_event %}">Add office hours</a></li>
     <li><a href="{% url available_now %}">Mark me as available for the rest of the hour</a></li>
+    <li><a href="{% url search %}">Search for users based on skillsets</a></li>
   </ul>
       {% else %}
   <p class="big">Get help from someone who knows what they're talking about.</p>
   <p>Talk to other HN users that have questions or donate a bit of your time to help others.</p>
   <p>It's free and makes people love you</p>
+  <p><a href="{% url search %}">Search for users based on skillsets!</a></p>
       {% endif %}
   </div>
   <div id="blurb-pic">
