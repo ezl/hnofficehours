@@ -17,16 +17,6 @@ def strip_the_fucking_tags():
         else:
             bad_skill.name = tag_clean(bad_skill.name)
             bad_skill.save()
-    """
-    for skill in Skill.objects.all():
-        dupes = Skill.objects.filter(name=skill).exclude(id = skill.id)
-        if dupes.count > 0:
-            for dupe in dupes:
-                poor_souls = dupe.profile_set.all()
-                for ps in poor_souls:
-                    ps.skills.remove(dupe)
-                    ps.skills.add(skill)
-    """
 
 def search(request):
     if request.method == "POST":
@@ -39,7 +29,6 @@ def search(request):
                 try:
                     qs = [list(chain(*[skill.profile_set.all() for skill in Skill.objects.filter(name__contains=tag_clean(qry))])) for qry in query_list]
                     results = list(set(qs[0]).intersection(*qs))
-                    #list(set([list(chain(*[skill.profile_set.all() for skill in Skill.objects.filter(name__contains=tag_clean(qry))])) for qry in query_list][0]).intersection(*qs)) # one liner for lulz
                 except Exception as e:
                     results = None
             else:
